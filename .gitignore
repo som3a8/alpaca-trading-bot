@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+pnl_log.json
+session_snapshot.json
+signal_ledger.json
+logs/
+backtest_results*.json

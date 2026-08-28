@@ -1,0 +1,15 @@
+alpaca-py
+python-dotenv
+pandas
+numpy
+scikit-learn
+xgboost
+lightgbm
+yfinance
+requests
+scipy
+ta
+lxml
+html5lib
+streamlit
+plotly
