@@ -1,0 +1,43 @@
+name: Trading Bot - Shift B (afternoon)
+
+# Covers 2:15pm-3:55pm ET (18:15-19:55 UTC during EDT), picking up where
+# Shift A's 295-minute cap ends and stopping safely before the 4:00pm ET
+# close. Static timeout, not a computed expression — see shift-a.yml.
+on:
+  schedule:
+    - cron: "15 18 * * 1-5"
+  workflow_dispatch: {}
+
+concurrency:
+  group: trading-bot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+      PYTHONIOENCODING: utf-8
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run trading bot for this shift
+        run: python main.py
+
+      - name: Upload today's log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bot-log-${{ github.run_id }}
+          path: logs/bot.log
+          retention-days: 14

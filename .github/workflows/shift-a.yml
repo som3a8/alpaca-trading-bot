@@ -1,0 +1,44 @@
+name: Trading Bot - Shift A (morning)
+
+# Covers 9:20am-2:15pm ET (13:20-18:15 UTC during EDT). Split into two
+# static-timeout workflows instead of one workflow with a computed
+# timeout-minutes expression, after that expression failed to apply on a
+# live run and let the job keep going 7+ hours past market close.
+on:
+  schedule:
+    - cron: "20 13 * * 1-5"
+  workflow_dispatch: {}
+
+concurrency:
+  group: trading-bot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 295
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+      PYTHONIOENCODING: utf-8
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run trading bot for this shift
+        run: python main.py
+
+      - name: Upload today's log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bot-log-${{ github.run_id }}
+          path: logs/bot.log
+          retention-days: 14
