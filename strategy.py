@@ -28,6 +28,8 @@ import ta
 from pathlib import Path
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.preprocessing import StandardScaler
+from sklearn.calibration import CalibratedClassifierCV
+from sklearn.frozen import FrozenEstimator
 from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 
@@ -45,6 +47,14 @@ LEDGER_PATH   = Path("signal_ledger.json")
 CACHE_LOOPS   = 3     # Re-use a fitted model for this many loops before retraining
 N_ESTIMATORS  = 200   # Trees per ensemble member — tunable (e.g. lowered by backtest.py for speed)
 
+# Experimental: tree-ensemble predict_proba() is known to skew toward extreme
+# values rather than true probabilities, which matters here specifically
+# because trade decisions are a raw threshold on that probability (40% for
+# BUY/SELL). Off by default — the live bot (main.py) never sets this. A
+# separate experiment script flips it on to backtest calibrated vs.
+# uncalibrated head-to-head before this is ever trusted live.
+CALIBRATE_MODE = False
+
 
 # =====================================================================
 # MODEL CACHE  (in-process, survives loop iterations)
@@ -52,6 +62,8 @@ N_ESTIMATORS  = 200   # Trees per ensemble member — tunable (e.g. lowered by b
 # Structure: { symbol: { "model": VotingClassifier, "scaler": StandardScaler,
 #                        "features": list, "loop": int } }
 _model_cache: dict = {}
+_model_cache_calibrated: dict = {}   # separate cache so CALIBRATE_MODE never
+                                      # collides with the live/uncalibrated cache
 
 
 # =====================================================================
@@ -585,18 +597,24 @@ def generate_ensemble_signal(df: pd.DataFrame, symbol: str = "",
         }
 
     # ── Model cache ───────────────────────────────────────────────────
-    cached = _model_cache.get(symbol)
+    cache = _model_cache_calibrated if CALIBRATE_MODE else _model_cache
+    cached = cache.get(symbol)
     use_cache = (
         cached is not None and
         cached.get("features") == available and
         (loop_number - cached.get("loop", 0)) < CACHE_LOOPS
     )
+    was_calibrated = False   # tracks whether `ensemble` ended up calibrated,
+                              # for the feature-importance lookup below —
+                              # calibration wraps the raw VotingClassifier so
+                              # .estimators_ isn't reachable the same way
 
     try:
         if use_cache:
             ensemble = cached["model"]
             scaler   = cached["scaler"]
             X_live_s = scaler.transform(X_live)
+            was_calibrated = cached.get("calibrated", False)
         else:
             scaler    = StandardScaler()
             X_train_s = scaler.fit_transform(X_train)
@@ -622,11 +640,32 @@ def generate_ensemble_signal(df: pd.DataFrame, symbol: str = "",
                 voting="soft",
                 weights=[1, 1.3, 1.3],
             )
-            ensemble.fit(X_train_s, y_train)
 
-            _model_cache[symbol] = {
+            # Chronological fit/calibration split — never shuffle time-series
+            # data. Falls back to fitting normally (no calibration) if the
+            # calibration slice is too small or too class-imbalanced for
+            # sigmoid (Platt) calibration to fit meaningfully.
+            calib_ok = False
+            if CALIBRATE_MODE:
+                split = int(len(X_train_s) * 0.8)
+                X_fit, X_cal = X_train_s[:split], X_train_s[split:]
+                y_fit, y_cal = y_train.iloc[:split], y_train.iloc[split:]
+                if len(X_cal) >= 20 and y_cal.nunique() >= 2 and y_fit.nunique() >= 2:
+                    ensemble.fit(X_fit, y_fit)
+                    ensemble = CalibratedClassifierCV(
+                        estimator=FrozenEstimator(ensemble), method="sigmoid",
+                    )
+                    ensemble.fit(X_cal, y_cal)
+                    calib_ok = True
+                    was_calibrated = True
+
+            if not calib_ok:
+                ensemble.fit(X_train_s, y_train)
+
+            cache[symbol] = {
                 "model": ensemble, "scaler": scaler,
                 "features": available, "loop": loop_number,
+                "calibrated": was_calibrated,
             }
 
         # ── Predict ───────────────────────────────────────────────────
@@ -655,12 +694,23 @@ def generate_ensemble_signal(df: pd.DataFrame, symbol: str = "",
         ichi_str   = ("ichi=golden✚" if ichi_cross == 1 else
                       "ichi=death✖"  if ichi_cross == -1 else "")
 
-        # Top-3 RF feature importances
-        importances = ensemble.estimators_[0].feature_importances_
-        top_idx     = np.argsort(importances)[-3:][::-1]
-        top_feats   = ", ".join(
-            f"{available[i]}={importances[i]:.2f}" for i in top_idx
-        )
+        # Top-3 RF feature importances — display-only, so a best-effort
+        # lookup: a calibrated model wraps the VotingClassifier inside
+        # CalibratedClassifierCV(FrozenEstimator(...)), which doesn't expose
+        # .estimators_ the same direct way.
+        top_feats = ""
+        try:
+            if was_calibrated:
+                rf = ensemble.calibrated_classifiers_[0].estimator.estimator.named_estimators_["rf"]
+            else:
+                rf = ensemble.estimators_[0]
+            importances = rf.feature_importances_
+            top_idx     = np.argsort(importances)[-3:][::-1]
+            top_feats   = ", ".join(
+                f"{available[i]}={importances[i]:.2f}" for i in top_idx
+            )
+        except Exception:
+            pass
 
         extras = " | ".join(x for x in [candle_str, ichi_str] if x)
         return {
