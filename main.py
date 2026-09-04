@@ -39,19 +39,17 @@ from alpaca.trading.enums import AssetClass, ContractType
 # CONFIGURATION
 # =====================================================================
 
-CIRCUIT_BREAKER_LOSS_PCT       = -0.05    # -5% of position cost basis: hard stop
-PROFIT_TAKE_TARGET_PCT         =  0.12    # +12% of position cost basis: take-profit
+CIRCUIT_BREAKER_LOSS_PCT       = -0.04    # -4% of position cost basis: hard stop
+PROFIT_TAKE_TARGET_PCT         =  0.06    # +6% of position cost basis: take-profit
 # -2.5% was originally backtested and found to be the single biggest drag on
 # returns: 177/551 trades (32%) hit that stop, losing -$49,655 total — more
-# than every other exit type's gains combined. Widened to -4%, which helped
-# (win rate 50.3%→57.7%), then to -5%/+12% here for a different reason: this
-# account is judged on ONE week's P&L, ranked against other entrants — a
-# tournament payoff, not a real-investing one. Paper money means a bad week
-# costs nothing beyond not placing, so a strategy that reliably nets a small
-# return doesn't help; one with a real shot at a big week does. That means
-# deliberately widening the reward:risk ratio to let winners run much
-# further (+6%→+12% target, 1.5%→3% trailing-stop room) rather than tuning
-# for the smoothest backtest curve.
+# than every other exit type's gains combined. Widened to -4%/+6%, which
+# helped (win rate 50.3%→57.7%) — that's the baseline kept here. It was
+# widened further still, to -5%/+12%, for a one-week tournament judged on
+# P&L rank with paper money and no real downside — that reasoning doesn't
+# apply to an account meant for ongoing use, so this reverts to the last
+# values actually validated by backtesting rather than tuned for one wild
+# week.
 MIN_BUY_PROB                   =  0.40
 MIN_SELL_PROB                  =  0.40
 
@@ -60,15 +58,15 @@ MIN_SELL_PROB                  =  0.40
 # number for all 47 tickers — a quiet stock (KO) and a volatile one (NVDA)
 # get identical stop distance, which isn't principled. Positions now scale
 # their own stop/target to their entry-day ATR% instead, clamped to sane
-# bounds and preserving the ~2.4:1 reward:risk ratio the flat numbers set.
+# bounds and preserving the ~1.5:1 reward:risk ratio the flat numbers set.
 # Falls back to the flat constants if no ATR was recorded for a position
 # (e.g. it predates this feature, or ATR was unavailable at entry).
 ATR_STOP_MULT    = 2.0     # stop at -2x entry-day ATR%
-ATR_TARGET_MULT  = 4.8     # target at +4.8x — keeps the -5%/+12% ratio
-ATR_STOP_FLOOR   = -0.10   # never wider than -10%, regardless of ATR
+ATR_TARGET_MULT  = 3.0     # target at +3x — keeps the -4%/+6% ratio
+ATR_STOP_FLOOR   = -0.07   # never wider than -7%, regardless of ATR
 ATR_STOP_CEIL    = -0.02   # never tighter than -2%, regardless of ATR
-ATR_TARGET_FLOOR =  0.05   # never smaller than +5%
-ATR_TARGET_CEIL  =  0.25   # never larger than +25%
+ATR_TARGET_FLOOR =  0.04   # never smaller than +4%
+ATR_TARGET_CEIL  =  0.12   # never larger than +12%
 
 
 def _atr_scaled_thresholds(symbol: str) -> tuple[float, float]:
@@ -86,8 +84,7 @@ def _atr_scaled_thresholds(symbol: str) -> tuple[float, float]:
 
 # ── Trailing stop ────────────────────────────────────────────────────
 TRAIL_ACTIVATE_USD   =  3.00   # Start trailing only after $3 unrealised gain
-TRAIL_STOP_PCT       =  0.03   # Trail 3% below the running high-water mark — more
-                                # room than 1.5% so a real trend isn't cut short
+TRAIL_STOP_PCT       =  0.015  # Trail 1.5% below the running high-water mark
 
 # ── Time-based exit ──────────────────────────────────────────────────
 STALE_POSITION_LOOPS = 12      # Close position if held for this many loops
@@ -129,7 +126,8 @@ TICKER_SLEEP = 1.5
 # further OTM strikes (cheaper premium, more leverage per dollar) and
 # shorter expiries (more gamma/price-sensitivity within the ~1-week window,
 # rather than paying for time value that extends well past when it matters).
-OPTIONS_ENABLED             = True
+OPTIONS_ENABLED             = False   # off for now — equity-only while re-tuned
+                                       # for ongoing use instead of one tournament week
 OPTIONS_MIN_PROB            = 0.46     # Higher bar than equity's 0.40 — decay/leverage risk
 OPTIONS_BUDGET_FRACTION     = 0.025    # 2.5% of equity per options trade (was 5% —
                                         # halved after a day where six options

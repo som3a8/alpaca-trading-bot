@@ -45,23 +45,19 @@ trading_client = TradingClient(API_KEY, SECRET_KEY, paper=True)
 data_client    = StockHistoricalDataClient(API_KEY, SECRET_KEY)
 option_data_client = OptionHistoricalDataClient(API_KEY, SECRET_KEY)
 
-# ── Equity position sizing (tunable — scaled for a $100k account) ──────────
-# At the old 2.5-4%-of-cash sizing, 5 filled slots deployed only ~12% of a
-# $100k account: 0.025*100000=2500, then 2.5% of the *shrinking* remaining
-# cash each time after — the position count cap was rarely the binding
-# constraint, the tiny fraction was. Raised so a fully-invested book deploys
-# a meaningful majority of capital while staying diversified across
-# MAX_EQUITY_POSITIONS names, each still capped at MAX_POSITION_VALUE.
-#
-# Sized up further for the competition: judged on one week's P&L ranked
-# against other entrants (a tournament, not real investing) with paper
-# money (a bad week costs nothing beyond not placing) — so bigger, more
-# concentrated bets that increase the chance of a standout week are the
-# rational play here, not the smoothest/safest capital curve.
+# ── Equity position sizing (tunable — not scaled to any particular account) ─
+# Was sized much bigger (18-25% of cash per position) for a one-week
+# tournament judged on P&L rank with paper money and no real downside —
+# concentrated bets that raise the odds of a standout week were the
+# rational play there. That reasoning doesn't apply to an account meant to
+# be used on an ongoing basis, so this is back to a more moderate size:
+# diversified across up to MAX_EQUITY_POSITIONS names, no single position
+# dominating the book.
 MAX_EQUITY_POSITIONS = 6
-MAX_POSITION_VALUE   = 30_000.00   # per-position cap (30% of a $100k account)
-BASE_FRACTION        = 0.18        # of *available cash*, at CONF_FLOOR probability
-CONF_BOOST_CAP        = 0.07       # additional fraction at CONF_CEIL probability
+MAX_POSITION_VALUE   = 30_000.00   # per-position hard cap; irrelevant at small
+                                    # account sizes, just a sane absolute ceiling
+BASE_FRACTION        = 0.10        # of *available cash*, at CONF_FLOOR probability
+CONF_BOOST_CAP        = 0.05       # additional fraction at CONF_CEIL probability
 CONF_FLOOR           = 0.40        # matches main.py's MIN_BUY_PROB/MIN_SELL_PROB
 CONF_CEIL            = 0.65        # realistic ceiling for a 3-class prob in this regime
 
