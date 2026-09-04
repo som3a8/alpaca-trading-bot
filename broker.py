@@ -318,6 +318,17 @@ def parse_occ_symbol(symbol: str) -> "dict | None":
     }
 
 
+# A live Tuesday (Sep 1) showed a real problem the backtest can't catch —
+# it doesn't simulate options at all: ~15 losing round-trips that day, most
+# on contracts priced under $2-3, with losses like -93%, -82%, -69% on
+# stops meant to cap loss at -20%. Cheap, deep-OTM, short-dated contracts
+# have brutal bid-ask spreads relative to their price and can gap past a
+# %-based stop in a single loop's price move — a $0.05 move is a huge %
+# swing on a $0.20 option. Preferring contracts with more absolute premium
+# keeps the spread and the between-check gap risk proportionally smaller.
+MIN_OPTION_PREMIUM = 2.00
+
+
 def pick_option_contract(underlying: str, right: "ContractType",
                           current_price: float, otm_pct: float = 0.03,
                           dte_min: int = 14, dte_max: int = 45):
@@ -352,6 +363,13 @@ def pick_option_contract(underlying: str, right: "ContractType",
 
     liquid = [c for c in contracts if c.close_price is not None]
     pool   = liquid if liquid else contracts
+
+    # Prefer contracts with enough premium that the spread and between-check
+    # price gaps stay small relative to the position — fall back to the full
+    # pool only if nothing in this underlying/strike-band clears the bar.
+    priced = [c for c in pool if float(c.close_price or 0) >= MIN_OPTION_PREMIUM]
+    if priced:
+        pool = priced
 
     dte_mid = (dte_min + dte_max) / 2
 
