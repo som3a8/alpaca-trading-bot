@@ -12,6 +12,9 @@ concurrency:
   group: trading-bot
   cancel-in-progress: false
 
+permissions:
+  contents: write   # needed to commit pnl_log.json/signal_ledger.json back
+
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -41,3 +44,13 @@ jobs:
           name: bot-log-${{ github.run_id }}
           path: logs/bot.log
           retention-days: 14
+
+      - name: Commit updated trade history
+        if: always()
+        run: |
+          git config user.name "trading-bot"
+          git config user.email "actions@github.com"
+          git add pnl_log.json signal_ledger.json
+          git diff --staged --quiet && exit 0
+          git commit -m "Update trade history (Shift B, run ${{ github.run_id }})"
+          git push || echo "push failed, continuing"

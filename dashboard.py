@@ -61,9 +61,14 @@ try:
     equity            = float(account.equity)
     cash              = float(account.cash)
     long_market_value = float(account.long_market_value)
-    starting_balance  = 100.00
+    # last_equity is yesterday's close — not "starting balance" for an
+    # all-time return, but there's no account-creation-balance field on the
+    # account object, so this is the best available reference point. Set
+    # DASHBOARD_STARTING_BALANCE in .env if you want a fixed baseline instead
+    # (e.g. right after a paper-account reset).
+    starting_balance  = float(os.getenv("DASHBOARD_STARTING_BALANCE") or account.last_equity)
     total_profit_loss = equity - starting_balance
-    total_return_pct  = (total_profit_loss / starting_balance) * 100
+    total_return_pct  = (total_profit_loss / starting_balance) * 100 if starting_balance else 0.0
 
     session_pnl   = session_snap.get("session_pnl", 0.0)
     loop_number   = session_snap.get("loop",         "—")

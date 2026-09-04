@@ -1,8 +1,11 @@
 .env
 __pycache__/
 *.pyc
-pnl_log.json
 session_snapshot.json
-signal_ledger.json
 logs/
 backtest_results*.json
+
+# pnl_log.json and signal_ledger.json ARE tracked, deliberately — they're
+# committed back by the GitHub Actions workflows at the end of each shift
+# so trade history and per-ticker accuracy persist across runs instead of
+# resetting on every fresh checkout.
