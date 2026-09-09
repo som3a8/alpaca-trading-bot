@@ -94,5 +94,53 @@
     "pnl": 0.0,
     "reason": "stale exit NOK",
     "cumulative": -7.1961
+  },
+  {
+    "ts": "2026-09-09T18:36:33",
+    "pnl": -0.1056,
+    "reason": "stale exit INTC",
+    "cumulative": -7.3017
+  },
+  {
+    "ts": "2026-09-09T19:16:02",
+    "pnl": 0.5818,
+    "reason": "stale exit BAC",
+    "cumulative": -6.7199
+  },
+  {
+    "ts": "2026-09-09T19:55:10",
+    "pnl": -1.4116,
+    "reason": "stale exit ORCL",
+    "cumulative": -8.1315
+  },
+  {
+    "ts": "2026-09-09T20:40:19",
+    "pnl": 0.0672,
+    "reason": "stale exit INTC",
+    "cumulative": -8.0643
+  },
+  {
+    "ts": "2026-09-09T21:12:19",
+    "pnl": 0.0988,
+    "reason": "stale exit BAC",
+    "cumulative": -7.9655
+  },
+  {
+    "ts": "2026-09-09T21:12:19",
+    "pnl": -0.2795,
+    "reason": "stale exit COP",
+    "cumulative": -8.245
+  },
+  {
+    "ts": "2026-09-09T21:12:19",
+    "pnl": -0.1184,
+    "reason": "stale exit WRB",
+    "cumulative": -8.3634
+  },
+  {
+    "ts": "2026-09-09T22:04:02",
+    "pnl": -0.1478,
+    "reason": "stale exit INTC",
+    "cumulative": -8.5112
   }
 ]

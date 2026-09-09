@@ -10,14 +10,14 @@
     "trade_count": 1
   },
   "INTC": {
-    "buy_correct": 0,
-    "buy_total": 1,
+    "buy_correct": 1,
+    "buy_total": 4,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.7807,
-    "trade_count": 1
+    "total_pnl": -0.9669,
+    "trade_count": 4
   },
   "NRG": {
     "buy_correct": 0,
@@ -107,6 +107,46 @@
     "hold_correct": 0,
     "hold_total": 0,
     "total_pnl": -0.217,
+    "trade_count": 1
+  },
+  "BAC": {
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.6806,
+    "trade_count": 2
+  },
+  "ORCL": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -1.4116,
+    "trade_count": 1
+  },
+  "COP": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.2795,
+    "trade_count": 1
+  },
+  "WRB": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.1184,
     "trade_count": 1
   }
 }
