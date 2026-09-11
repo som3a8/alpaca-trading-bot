@@ -40,14 +40,14 @@
     "trade_count": 1
   },
   "META": {
-    "buy_correct": 2,
-    "buy_total": 4,
+    "buy_correct": 3,
+    "buy_total": 5,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.7823,
-    "trade_count": 4
+    "total_pnl": -0.7392,
+    "trade_count": 5
   },
   "PKG": {
     "buy_correct": 0,
@@ -71,13 +71,13 @@
   },
   "HUBB": {
     "buy_correct": 0,
-    "buy_total": 2,
+    "buy_total": 3,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -2.2678,
-    "trade_count": 2
+    "total_pnl": -3.0607,
+    "trade_count": 3
   },
   "NOK": {
     "buy_correct": 0,
@@ -161,13 +161,13 @@
   },
   "AAPL": {
     "buy_correct": 2,
-    "buy_total": 3,
+    "buy_total": 5,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.6316,
-    "trade_count": 3
+    "total_pnl": 0.5004,
+    "trade_count": 5
   },
   "PCG": {
     "buy_correct": 0,
@@ -197,6 +197,36 @@
     "hold_correct": 0,
     "hold_total": 0,
     "total_pnl": -0.0731,
+    "trade_count": 1
+  },
+  "WFC": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.033,
+    "trade_count": 1
+  },
+  "TXN": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.736,
+    "trade_count": 1
+  },
+  "SWKS": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.6572,
     "trade_count": 1
   }
 }
