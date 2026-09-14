@@ -238,5 +238,113 @@
     "pnl": -0.0522,
     "reason": "stale exit AAPL",
     "cumulative": -10.7217
+  },
+  {
+    "ts": "2026-09-14T20:09:12",
+    "pnl": -0.5282,
+    "reason": "stale exit MSFT",
+    "cumulative": -11.2499
+  },
+  {
+    "ts": "2026-09-14T20:09:12",
+    "pnl": -0.774,
+    "reason": "stale exit WMT",
+    "cumulative": -12.0239
+  },
+  {
+    "ts": "2026-09-14T20:30:11",
+    "pnl": 0.4321,
+    "reason": "stale exit COP",
+    "cumulative": -11.5918
+  },
+  {
+    "ts": "2026-09-14T20:30:11",
+    "pnl": 0.3751,
+    "reason": "stale exit TTWO",
+    "cumulative": -11.2167
+  },
+  {
+    "ts": "2026-09-14T20:30:12",
+    "pnl": 0.0552,
+    "reason": "stale exit UPS",
+    "cumulative": -11.1615
+  },
+  {
+    "ts": "2026-09-14T20:36:25",
+    "pnl": 0.0506,
+    "reason": "stale exit CVX",
+    "cumulative": -11.1109
+  },
+  {
+    "ts": "2026-09-14T21:36:34",
+    "pnl": -0.862,
+    "reason": "stale exit MSFT",
+    "cumulative": -11.9729
+  },
+  {
+    "ts": "2026-09-14T21:36:34",
+    "pnl": -0.9224,
+    "reason": "stale exit WMT",
+    "cumulative": -12.8953
+  },
+  {
+    "ts": "2026-09-14T21:56:32",
+    "pnl": 0.1988,
+    "reason": "stale exit COP",
+    "cumulative": -12.6965
+  },
+  {
+    "ts": "2026-09-14T21:56:32",
+    "pnl": 0.2903,
+    "reason": "stale exit TTWO",
+    "cumulative": -12.4062
+  },
+  {
+    "ts": "2026-09-14T21:56:32",
+    "pnl": -0.0193,
+    "reason": "stale exit UPS",
+    "cumulative": -12.4255
+  },
+  {
+    "ts": "2026-09-14T22:03:37",
+    "pnl": 0.0033,
+    "reason": "stale exit CVX",
+    "cumulative": -12.4222
+  },
+  {
+    "ts": "2026-09-14T23:03:55",
+    "pnl": -1.1605,
+    "reason": "stale exit MSFT",
+    "cumulative": -13.5827
+  },
+  {
+    "ts": "2026-09-14T23:03:55",
+    "pnl": -0.941,
+    "reason": "stale exit WMT",
+    "cumulative": -14.5237
+  },
+  {
+    "ts": "2026-09-14T23:23:50",
+    "pnl": 0.1381,
+    "reason": "stale exit COP",
+    "cumulative": -14.3856
+  },
+  {
+    "ts": "2026-09-14T23:23:50",
+    "pnl": 0.249,
+    "reason": "stale exit TTWO",
+    "cumulative": -14.1366
+  },
+  {
+    "ts": "2026-09-14T23:23:51",
+    "pnl": -0.0171,
+    "reason": "stale exit UPS",
+    "cumulative": -14.1537
+  },
+  {
+    "ts": "2026-09-14T23:31:28",
+    "pnl": -0.0004,
+    "reason": "stale exit CVX",
+    "cumulative": -14.1541
   }
 ]
