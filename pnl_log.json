@@ -346,5 +346,41 @@
     "pnl": -0.0004,
     "reason": "stale exit CVX",
     "cumulative": -14.1541
+  },
+  {
+    "ts": "2026-09-18T20:17:11",
+    "pnl": -2.7873,
+    "reason": "stale exit JNJ",
+    "cumulative": -16.9414
+  },
+  {
+    "ts": "2026-09-18T20:17:11",
+    "pnl": 0.3655,
+    "reason": "stale exit VLO",
+    "cumulative": -16.5759
+  },
+  {
+    "ts": "2026-09-18T21:17:55",
+    "pnl": 0.0204,
+    "reason": "stale exit AMD",
+    "cumulative": -16.5556
+  },
+  {
+    "ts": "2026-09-18T21:17:55",
+    "pnl": 0.043,
+    "reason": "stale exit ORCL",
+    "cumulative": -16.5125
+  },
+  {
+    "ts": "2026-09-18T21:45:33",
+    "pnl": -1.9509,
+    "reason": "stale exit JNJ",
+    "cumulative": -18.4634
+  },
+  {
+    "ts": "2026-09-18T21:45:33",
+    "pnl": 0.2647,
+    "reason": "stale exit VLO",
+    "cumulative": -18.1987
   }
 ]
