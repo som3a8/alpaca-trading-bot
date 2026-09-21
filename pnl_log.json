@@ -382,5 +382,113 @@
     "pnl": 0.2647,
     "reason": "stale exit VLO",
     "cumulative": -18.1987
+  },
+  {
+    "ts": "2026-09-21T20:06:59",
+    "pnl": -0.1531,
+    "reason": "stale exit ASAN",
+    "cumulative": -18.3518
+  },
+  {
+    "ts": "2026-09-21T20:06:59",
+    "pnl": 0.0829,
+    "reason": "stale exit EXR",
+    "cumulative": -18.2689
+  },
+  {
+    "ts": "2026-09-21T20:06:59",
+    "pnl": 0.0618,
+    "reason": "stale exit TRGP",
+    "cumulative": -18.2071
+  },
+  {
+    "ts": "2026-09-21T20:13:53",
+    "pnl": 1.0956,
+    "reason": "stale exit MSFT",
+    "cumulative": -17.1115
+  },
+  {
+    "ts": "2026-09-21T20:13:53",
+    "pnl": 0.8719,
+    "reason": "stale exit TXN",
+    "cumulative": -16.2396
+  },
+  {
+    "ts": "2026-09-21T20:27:15",
+    "pnl": 0.3674,
+    "reason": "stale exit NXPI",
+    "cumulative": -15.8722
+  },
+  {
+    "ts": "2026-09-21T21:35:32",
+    "pnl": -0.1225,
+    "reason": "stale exit ASAN",
+    "cumulative": -15.9947
+  },
+  {
+    "ts": "2026-09-21T21:35:32",
+    "pnl": 0.0829,
+    "reason": "stale exit EXR",
+    "cumulative": -15.9118
+  },
+  {
+    "ts": "2026-09-21T21:35:32",
+    "pnl": 0.0618,
+    "reason": "stale exit TRGP",
+    "cumulative": -15.85
+  },
+  {
+    "ts": "2026-09-21T21:41:38",
+    "pnl": 1.0043,
+    "reason": "stale exit MSFT",
+    "cumulative": -14.8457
+  },
+  {
+    "ts": "2026-09-21T21:41:39",
+    "pnl": 0.8604,
+    "reason": "stale exit TXN",
+    "cumulative": -13.9853
+  },
+  {
+    "ts": "2026-09-21T21:55:30",
+    "pnl": 0.302,
+    "reason": "stale exit NXPI",
+    "cumulative": -13.6833
+  },
+  {
+    "ts": "2026-09-21T23:02:47",
+    "pnl": -0.1531,
+    "reason": "stale exit ASAN",
+    "cumulative": -13.8364
+  },
+  {
+    "ts": "2026-09-21T23:02:48",
+    "pnl": 0.0829,
+    "reason": "stale exit EXR",
+    "cumulative": -13.7535
+  },
+  {
+    "ts": "2026-09-21T23:02:48",
+    "pnl": 0.0618,
+    "reason": "stale exit TRGP",
+    "cumulative": -13.6917
+  },
+  {
+    "ts": "2026-09-21T23:09:17",
+    "pnl": 1.1882,
+    "reason": "stale exit MSFT",
+    "cumulative": -12.5035
+  },
+  {
+    "ts": "2026-09-21T23:09:18",
+    "pnl": 1.0448,
+    "reason": "stale exit TXN",
+    "cumulative": -11.4587
+  },
+  {
+    "ts": "2026-09-21T23:23:12",
+    "pnl": 0.3731,
+    "reason": "stale exit NXPI",
+    "cumulative": -11.0856
   }
 ]

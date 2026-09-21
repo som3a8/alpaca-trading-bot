@@ -210,14 +210,14 @@
     "trade_count": 1
   },
   "TXN": {
-    "buy_correct": 0,
-    "buy_total": 1,
+    "buy_correct": 3,
+    "buy_total": 4,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.736,
-    "trade_count": 1
+    "total_pnl": 2.0411,
+    "trade_count": 4
   },
   "SWKS": {
     "buy_correct": 0,
@@ -230,14 +230,14 @@
     "trade_count": 1
   },
   "MSFT": {
-    "buy_correct": 0,
-    "buy_total": 3,
+    "buy_correct": 3,
+    "buy_total": 6,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -2.5507,
-    "trade_count": 3
+    "total_pnl": 0.7374,
+    "trade_count": 6
   },
   "WMT": {
     "buy_correct": 0,
@@ -308,5 +308,45 @@
     "hold_total": 0,
     "total_pnl": 0.0204,
     "trade_count": 1
+  },
+  "ASAN": {
+    "buy_correct": 0,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.4287,
+    "trade_count": 3
+  },
+  "EXR": {
+    "buy_correct": 3,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.2487,
+    "trade_count": 3
+  },
+  "TRGP": {
+    "buy_correct": 3,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.1854,
+    "trade_count": 3
+  },
+  "NXPI": {
+    "buy_correct": 3,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 1.0425,
+    "trade_count": 3
   }
 }
