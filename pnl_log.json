@@ -490,5 +490,53 @@
     "pnl": 0.3731,
     "reason": "stale exit NXPI",
     "cumulative": -11.0856
+  },
+  {
+    "ts": "2026-09-22T20:17:15",
+    "pnl": 0.5738,
+    "reason": "stale exit MAS",
+    "cumulative": -10.5118
+  },
+  {
+    "ts": "2026-09-22T20:44:48",
+    "pnl": -0.3292,
+    "reason": "stale exit BSX",
+    "cumulative": -10.841
+  },
+  {
+    "ts": "2026-09-22T20:51:55",
+    "pnl": 0.552,
+    "reason": "stale exit FAST",
+    "cumulative": -10.289
+  },
+  {
+    "ts": "2026-09-22T20:58:05",
+    "pnl": -0.2137,
+    "reason": "stale exit BDX",
+    "cumulative": -10.5027
+  },
+  {
+    "ts": "2026-09-22T21:12:32",
+    "pnl": 0.2153,
+    "reason": "stale exit MRK",
+    "cumulative": -10.2874
+  },
+  {
+    "ts": "2026-09-22T21:46:27",
+    "pnl": 0.5738,
+    "reason": "stale exit MAS",
+    "cumulative": -9.7136
+  },
+  {
+    "ts": "2026-09-22T22:15:02",
+    "pnl": -0.0978,
+    "reason": "stale exit BSX",
+    "cumulative": -9.8114
+  },
+  {
+    "ts": "2026-09-22T22:27:26",
+    "pnl": -0.2137,
+    "reason": "stale exit BDX",
+    "cumulative": -10.0251
   }
 ]

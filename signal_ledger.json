@@ -348,5 +348,55 @@
     "hold_total": 0,
     "total_pnl": 1.0425,
     "trade_count": 3
+  },
+  "MAS": {
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 1.1476,
+    "trade_count": 2
+  },
+  "BSX": {
+    "buy_correct": 0,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.427,
+    "trade_count": 2
+  },
+  "FAST": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.552,
+    "trade_count": 1
+  },
+  "BDX": {
+    "buy_correct": 0,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.4274,
+    "trade_count": 2
+  },
+  "MRK": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.2153,
+    "trade_count": 1
   }
 }
