@@ -390,13 +390,63 @@
     "trade_count": 2
   },
   "MRK": {
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.6495,
+    "trade_count": 2
+  },
+  "RCL": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -7.4317,
+    "trade_count": 1
+  },
+  "EMR": {
+    "buy_correct": 0,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -2.1434,
+    "trade_count": 2
+  },
+  "NDSN": {
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.115,
+    "trade_count": 2
+  },
+  "IEX": {
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.085,
+    "trade_count": 2
+  },
+  "VRTX": {
     "buy_correct": 1,
     "buy_total": 1,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.2153,
+    "total_pnl": 0.0059,
     "trade_count": 1
   }
 }
