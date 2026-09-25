@@ -652,5 +652,59 @@
     "pnl": -0.1452,
     "reason": "stale exit APH",
     "cumulative": -19.6073
+  },
+  {
+    "ts": "2026-09-25T19:36:48",
+    "pnl": -0.5364,
+    "reason": "stale exit IVZ",
+    "cumulative": -20.1437
+  },
+  {
+    "ts": "2026-09-25T20:17:29",
+    "pnl": 0.9514,
+    "reason": "stale exit ROST",
+    "cumulative": -19.1923
+  },
+  {
+    "ts": "2026-09-25T20:23:43",
+    "pnl": 0.1083,
+    "reason": "stale exit MMM",
+    "cumulative": -19.084
+  },
+  {
+    "ts": "2026-09-25T21:13:38",
+    "pnl": -0.0486,
+    "reason": "stale exit HSIC",
+    "cumulative": -19.1326
+  },
+  {
+    "ts": "2026-09-25T21:13:39",
+    "pnl": -0.2427,
+    "reason": "stale exit JNJ",
+    "cumulative": -19.3753
+  },
+  {
+    "ts": "2026-09-25T21:47:55",
+    "pnl": 0.9514,
+    "reason": "stale exit ROST",
+    "cumulative": -18.4239
+  },
+  {
+    "ts": "2026-09-25T21:54:52",
+    "pnl": 0.1083,
+    "reason": "stale exit MMM",
+    "cumulative": -18.3156
+  },
+  {
+    "ts": "2026-09-25T22:43:09",
+    "pnl": -0.0486,
+    "reason": "stale exit HSIC",
+    "cumulative": -18.3642
+  },
+  {
+    "ts": "2026-09-25T22:43:09",
+    "pnl": -0.148,
+    "reason": "stale exit JNJ",
+    "cumulative": -18.5122
   }
 ]

@@ -1,13 +1,13 @@
 {
   "IVZ": {
     "buy_correct": 0,
-    "buy_total": 1,
+    "buy_total": 2,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -1.4734,
-    "trade_count": 1
+    "total_pnl": -2.0098,
+    "trade_count": 2
   },
   "INTC": {
     "buy_correct": 1,
@@ -281,13 +281,13 @@
   },
   "JNJ": {
     "buy_correct": 0,
-    "buy_total": 2,
+    "buy_total": 4,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -4.7382,
-    "trade_count": 2
+    "total_pnl": -5.1289,
+    "trade_count": 4
   },
   "VLO": {
     "buy_correct": 2,
@@ -497,6 +497,46 @@
     "hold_correct": 0,
     "hold_total": 0,
     "total_pnl": -0.2904,
+    "trade_count": 2
+  },
+  "QCOM": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -1.7276,
+    "trade_count": 1
+  },
+  "ROST": {
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 1.9028,
+    "trade_count": 2
+  },
+  "MMM": {
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.2166,
+    "trade_count": 2
+  },
+  "HSIC": {
+    "buy_correct": 0,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0972,
     "trade_count": 2
   }
 }
