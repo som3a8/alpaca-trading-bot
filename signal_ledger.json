@@ -538,5 +538,15 @@
     "hold_total": 0,
     "total_pnl": -0.0972,
     "trade_count": 2
+  },
+  "IRTC": {
+    "buy_correct": 0,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.4005,
+    "trade_count": 3
   }
 }

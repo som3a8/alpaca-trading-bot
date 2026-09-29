@@ -706,5 +706,23 @@
     "pnl": -0.148,
     "reason": "stale exit JNJ",
     "cumulative": -18.5122
+  },
+  {
+    "ts": "2026-09-28T21:29:13",
+    "pnl": -0.1335,
+    "reason": "stale exit IRTC",
+    "cumulative": -18.6457
+  },
+  {
+    "ts": "2026-09-28T22:54:55",
+    "pnl": -0.1335,
+    "reason": "stale exit IRTC",
+    "cumulative": -18.7792
+  },
+  {
+    "ts": "2026-09-29T00:19:25",
+    "pnl": -0.1335,
+    "reason": "stale exit IRTC",
+    "cumulative": -18.9127
   }
 ]
