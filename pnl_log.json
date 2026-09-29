@@ -724,5 +724,107 @@
     "pnl": -0.1335,
     "reason": "stale exit IRTC",
     "cumulative": -18.9127
+  },
+  {
+    "ts": "2026-09-29T20:00:36",
+    "pnl": 0.7179,
+    "reason": "stale exit XOM",
+    "cumulative": -18.1948
+  },
+  {
+    "ts": "2026-09-29T20:07:09",
+    "pnl": -0.3742,
+    "reason": "stale exit ULTA",
+    "cumulative": -18.569
+  },
+  {
+    "ts": "2026-09-29T20:34:01",
+    "pnl": 0.22,
+    "reason": "stale exit FERG",
+    "cumulative": -18.349
+  },
+  {
+    "ts": "2026-09-29T20:34:01",
+    "pnl": 0.2157,
+    "reason": "stale exit LITE",
+    "cumulative": -18.1333
+  },
+  {
+    "ts": "2026-09-29T20:34:01",
+    "pnl": -0.0503,
+    "reason": "stale exit NVDA",
+    "cumulative": -18.1836
+  },
+  {
+    "ts": "2026-09-29T20:53:43",
+    "pnl": 0.0963,
+    "reason": "stale exit SYK",
+    "cumulative": -18.0873
+  },
+  {
+    "ts": "2026-09-29T21:27:25",
+    "pnl": 0.679,
+    "reason": "stale exit XOM",
+    "cumulative": -17.4083
+  },
+  {
+    "ts": "2026-09-29T21:33:20",
+    "pnl": -0.3742,
+    "reason": "stale exit ULTA",
+    "cumulative": -17.7825
+  },
+  {
+    "ts": "2026-09-29T21:59:56",
+    "pnl": 0.22,
+    "reason": "stale exit FERG",
+    "cumulative": -17.5625
+  },
+  {
+    "ts": "2026-09-29T21:59:56",
+    "pnl": 0.3528,
+    "reason": "stale exit LITE",
+    "cumulative": -17.2097
+  },
+  {
+    "ts": "2026-09-29T21:59:56",
+    "pnl": -0.0195,
+    "reason": "stale exit NVDA",
+    "cumulative": -17.2292
+  },
+  {
+    "ts": "2026-09-29T22:19:55",
+    "pnl": 0.0978,
+    "reason": "stale exit SYK",
+    "cumulative": -17.1314
+  },
+  {
+    "ts": "2026-09-29T22:53:11",
+    "pnl": 0.6206,
+    "reason": "stale exit XOM",
+    "cumulative": -16.5108
+  },
+  {
+    "ts": "2026-09-29T22:59:27",
+    "pnl": -0.3742,
+    "reason": "stale exit ULTA",
+    "cumulative": -16.885
+  },
+  {
+    "ts": "2026-09-29T23:26:50",
+    "pnl": 0.22,
+    "reason": "stale exit FERG",
+    "cumulative": -16.665
+  },
+  {
+    "ts": "2026-09-29T23:26:50",
+    "pnl": 0.4568,
+    "reason": "stale exit LITE",
+    "cumulative": -16.2082
+  },
+  {
+    "ts": "2026-09-29T23:26:50",
+    "pnl": 0.0705,
+    "reason": "stale exit NVDA",
+    "cumulative": -16.1377
   }
 ]
