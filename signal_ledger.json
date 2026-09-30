@@ -461,13 +461,13 @@
   },
   "LEN": {
     "buy_correct": 0,
-    "buy_total": 1,
+    "buy_total": 4,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.7546,
-    "trade_count": 1
+    "total_pnl": -1.0029,
+    "trade_count": 4
   },
   "TXG": {
     "buy_correct": 1,
@@ -597,6 +597,16 @@
     "hold_correct": 0,
     "hold_total": 0,
     "total_pnl": 0.1941,
+    "trade_count": 2
+  },
+  "CBOE": {
+    "buy_correct": 0,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.5376,
     "trade_count": 2
   }
 }

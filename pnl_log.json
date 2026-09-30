@@ -826,5 +826,35 @@
     "pnl": 0.0705,
     "reason": "stale exit NVDA",
     "cumulative": -16.1377
+  },
+  {
+    "ts": "2026-09-30T20:00:52",
+    "pnl": -0.0869,
+    "reason": "stale exit LEN",
+    "cumulative": -16.2246
+  },
+  {
+    "ts": "2026-09-30T21:05:24",
+    "pnl": -0.2688,
+    "reason": "stale exit CBOE",
+    "cumulative": -16.4934
+  },
+  {
+    "ts": "2026-09-30T21:24:38",
+    "pnl": -0.0869,
+    "reason": "stale exit LEN",
+    "cumulative": -16.5803
+  },
+  {
+    "ts": "2026-09-30T22:29:31",
+    "pnl": -0.2688,
+    "reason": "stale exit CBOE",
+    "cumulative": -16.8491
+  },
+  {
+    "ts": "2026-09-30T22:49:37",
+    "pnl": -0.0745,
+    "reason": "stale exit LEN",
+    "cumulative": -16.9236
   }
 ]
