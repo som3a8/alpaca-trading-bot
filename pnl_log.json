@@ -856,5 +856,71 @@
     "pnl": -0.0745,
     "reason": "stale exit LEN",
     "cumulative": -16.9236
+  },
+  {
+    "ts": "2026-10-01T20:16:45",
+    "pnl": -0.3715,
+    "reason": "stale exit AIG",
+    "cumulative": -17.2951
+  },
+  {
+    "ts": "2026-10-01T20:16:45",
+    "pnl": 0.761,
+    "reason": "stale exit EXC",
+    "cumulative": -16.5341
+  },
+  {
+    "ts": "2026-10-01T20:30:19",
+    "pnl": -0.2748,
+    "reason": "stale exit INTC",
+    "cumulative": -16.8089
+  },
+  {
+    "ts": "2026-10-01T20:44:15",
+    "pnl": -1.391,
+    "reason": "stale exit FDS",
+    "cumulative": -18.1999
+  },
+  {
+    "ts": "2026-10-01T21:43:24",
+    "pnl": -0.3715,
+    "reason": "stale exit AIG",
+    "cumulative": -18.5714
+  },
+  {
+    "ts": "2026-10-01T21:43:24",
+    "pnl": 0.761,
+    "reason": "stale exit EXC",
+    "cumulative": -17.8104
+  },
+  {
+    "ts": "2026-10-01T21:56:19",
+    "pnl": -0.296,
+    "reason": "stale exit INTC",
+    "cumulative": -18.1064
+  },
+  {
+    "ts": "2026-10-01T22:09:06",
+    "pnl": -1.391,
+    "reason": "stale exit FDS",
+    "cumulative": -19.4974
+  },
+  {
+    "ts": "2026-10-01T23:09:02",
+    "pnl": -0.3715,
+    "reason": "stale exit AIG",
+    "cumulative": -19.8689
+  },
+  {
+    "ts": "2026-10-01T23:22:55",
+    "pnl": 0.1048,
+    "reason": "stale exit INTC",
+    "cumulative": -19.7641
+  },
+  {
+    "ts": "2026-10-01T23:35:08",
+    "pnl": -1.391,
+    "reason": "stale exit FDS",
+    "cumulative": -21.1551
   }
 ]

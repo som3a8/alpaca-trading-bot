@@ -10,14 +10,14 @@
     "trade_count": 2
   },
   "INTC": {
-    "buy_correct": 1,
-    "buy_total": 4,
+    "buy_correct": 2,
+    "buy_total": 7,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.9669,
-    "trade_count": 4
+    "total_pnl": -1.4329,
+    "trade_count": 7
   },
   "NRG": {
     "buy_correct": 0,
@@ -608,5 +608,35 @@
     "hold_total": 0,
     "total_pnl": -0.5376,
     "trade_count": 2
+  },
+  "AIG": {
+    "buy_correct": 0,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -1.1145,
+    "trade_count": 3
+  },
+  "EXC": {
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 1.522,
+    "trade_count": 2
+  },
+  "FDS": {
+    "buy_correct": 0,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -4.173,
+    "trade_count": 3
   }
 }
