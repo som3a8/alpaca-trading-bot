@@ -271,13 +271,13 @@
   },
   "CVX": {
     "buy_correct": 2,
-    "buy_total": 3,
+    "buy_total": 5,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.0535,
-    "trade_count": 3
+    "total_pnl": -0.1925,
+    "trade_count": 5
   },
   "JNJ": {
     "buy_correct": 0,
@@ -330,14 +330,14 @@
     "trade_count": 3
   },
   "TRGP": {
-    "buy_correct": 3,
-    "buy_total": 3,
+    "buy_correct": 5,
+    "buy_total": 5,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.1854,
-    "trade_count": 3
+    "total_pnl": 0.2198,
+    "trade_count": 5
   },
   "NXPI": {
     "buy_correct": 3,
@@ -638,5 +638,55 @@
     "hold_total": 0,
     "total_pnl": -4.173,
     "trade_count": 3
+  },
+  "EXPE": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.8473,
+    "trade_count": 1
+  },
+  "HWM": {
+    "buy_correct": 3,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.8629,
+    "trade_count": 3
+  },
+  "PSA": {
+    "buy_correct": 0,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.218,
+    "trade_count": 2
+  },
+  "AVGO": {
+    "buy_correct": 1,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0217,
+    "trade_count": 2
+  },
+  "NEE": {
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.2378,
+    "trade_count": 2
   }
 }

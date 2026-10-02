@@ -922,5 +922,89 @@
     "pnl": -1.391,
     "reason": "stale exit FDS",
     "cumulative": -21.1551
+  },
+  {
+    "ts": "2026-10-02T19:56:18",
+    "pnl": -0.8473,
+    "reason": "stale exit EXPE",
+    "cumulative": -22.0024
+  },
+  {
+    "ts": "2026-10-02T20:02:41",
+    "pnl": 0.4015,
+    "reason": "stale exit HWM",
+    "cumulative": -21.6009
+  },
+  {
+    "ts": "2026-10-02T20:41:03",
+    "pnl": -0.1104,
+    "reason": "stale exit CVX",
+    "cumulative": -21.7113
+  },
+  {
+    "ts": "2026-10-02T21:00:26",
+    "pnl": -0.109,
+    "reason": "stale exit PSA",
+    "cumulative": -21.8203
+  },
+  {
+    "ts": "2026-10-02T21:00:26",
+    "pnl": 0.0172,
+    "reason": "stale exit TRGP",
+    "cumulative": -21.8031
+  },
+  {
+    "ts": "2026-10-02T21:13:45",
+    "pnl": 0.025,
+    "reason": "stale exit AVGO",
+    "cumulative": -21.7781
+  },
+  {
+    "ts": "2026-10-02T21:13:46",
+    "pnl": 0.1068,
+    "reason": "stale exit NEE",
+    "cumulative": -21.6713
+  },
+  {
+    "ts": "2026-10-02T21:26:25",
+    "pnl": 0.0932,
+    "reason": "stale exit HWM",
+    "cumulative": -21.5781
+  },
+  {
+    "ts": "2026-10-02T22:05:09",
+    "pnl": -0.1356,
+    "reason": "stale exit CVX",
+    "cumulative": -21.7137
+  },
+  {
+    "ts": "2026-10-02T22:24:22",
+    "pnl": -0.109,
+    "reason": "stale exit PSA",
+    "cumulative": -21.8227
+  },
+  {
+    "ts": "2026-10-02T22:24:22",
+    "pnl": 0.0172,
+    "reason": "stale exit TRGP",
+    "cumulative": -21.8055
+  },
+  {
+    "ts": "2026-10-02T22:37:32",
+    "pnl": -0.0467,
+    "reason": "stale exit AVGO",
+    "cumulative": -21.8522
+  },
+  {
+    "ts": "2026-10-02T22:37:32",
+    "pnl": 0.131,
+    "reason": "stale exit NEE",
+    "cumulative": -21.7212
+  },
+  {
+    "ts": "2026-10-02T22:51:20",
+    "pnl": 0.3682,
+    "reason": "stale exit HWM",
+    "cumulative": -21.353
   }
 ]
