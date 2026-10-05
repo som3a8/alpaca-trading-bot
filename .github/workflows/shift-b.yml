@@ -1,31 +1,44 @@
-name: Trading Bot - Shift B (afternoon)
+name: Trading Bots - Shift B (afternoon)
 
 # Covers 2:15pm-3:55pm ET (18:15-19:55 UTC during EDT), picking up where
 # Shift A's 295-minute cap ends and stopping safely before the 4:00pm ET
-# close. Static timeout, not a computed expression — see shift-a.yml.
+# close. Same three-bot matrix as shift-a.yml — see the notes there.
 on:
   schedule:
     - cron: "15 18 * * 1-5"
   workflow_dispatch: {}
 
 concurrency:
-  group: trading-bot
+  group: trading-bots
   cancel-in-progress: false
 
 permissions:
-  contents: write   # needed to commit pnl_log.json/signal_ledger.json back
+  contents: write
 
 jobs:
   run:
+    name: ${{ matrix.bot }} (${{ matrix.strategy }})
     runs-on: ubuntu-latest
     timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { bot: bot1, strategy: ensemble,       mtf: "1", key: BOT1_API_KEY, secret: BOT1_API_SECRET }
+          - { bot: bot2, strategy: sma_cross,      mtf: "0", key: BOT2_API_KEY, secret: BOT2_API_SECRET }
+          - { bot: bot3, strategy: mean_reversion, mtf: "0", key: BOT3_API_KEY, secret: BOT3_API_SECRET }
     env:
-      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
-      ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+      ALPACA_API_KEY: ${{ secrets[matrix.key] }}
+      ALPACA_SECRET_KEY: ${{ secrets[matrix.secret] }}
+      STRATEGY: ${{ matrix.strategy }}
+      MTF_ENABLED: ${{ matrix.mtf }}
+      BOT_STATE_DIR: state/${{ matrix.bot }}
       PYTHONIOENCODING: utf-8
       PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -34,14 +47,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run trading bot for this shift
+      - name: Run ${{ matrix.bot }} for this shift
         run: python main.py
 
-      - name: Upload today's log
+      - name: Upload log
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: bot-log-${{ github.run_id }}
+          name: log-${{ matrix.bot }}-${{ github.run_id }}
           path: logs/bot.log
           retention-days: 14
 
@@ -50,7 +63,11 @@ jobs:
         run: |
           git config user.name "trading-bot"
           git config user.email "actions@github.com"
-          git add pnl_log.json signal_ledger.json
+          git add -A "state/${{ matrix.bot }}" || true
           git diff --staged --quiet && exit 0
-          git commit -m "Update trade history (Shift B, run ${{ github.run_id }})"
-          git push || echo "push failed, continuing"
+          git commit -m "Update ${{ matrix.bot }} trade history (Shift B, run ${{ github.run_id }})"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((i * 5))
+          done
+          echo "push failed after retries, continuing"

@@ -21,6 +21,7 @@ Original features retained:
 """
 
 import json
+import os
 import sys
 import time
 import math
@@ -100,7 +101,7 @@ REGIME_EMA_SLOW      = 21
 EARNINGS_BLACKOUT_DAYS = 2     # Skip tickers with earnings within this window
 
 # ── Multi-timeframe ───────────────────────────────────────────────────
-MTF_ENABLED          = True    # Set False to disable the hourly confirmation
+MTF_ENABLED          = os.getenv("MTF_ENABLED", "1") != "0"   # MTF_ENABLED=0 disables the hourly confirmation
 MTF_EMA_FAST         = 12
 MTF_EMA_SLOW         = 26
 
@@ -141,8 +142,13 @@ OPTIONS_CLOSE_BEFORE_EXPIRY_DAYS = 3   # Force-close positions this close to exp
 OPTIONS_CIRCUIT_BREAKER_PCT = -0.20    # -20% of premium: hard stop (options are volatile)
 OPTIONS_PROFIT_TARGET_PCT   =  1.00    # +100% of premium: let a winning option run further
 
-# ── P&L log path (read by dashboard.py) ──────────────────────────────
-PNL_LOG_PATH = Path("pnl_log.json")
+# ── Per-bot state (read by dashboard.py) ──────────────────────────────
+# Several bots can run from this one codebase, each against its own Alpaca
+# account. BOT_STATE_DIR keeps each bot's P&L log, signal ledger and session
+# snapshot apart so they never overwrite each other. Unset = repo root, as before.
+STATE_DIR = Path(os.getenv("BOT_STATE_DIR", "."))
+STATE_DIR.mkdir(parents=True, exist_ok=True)
+PNL_LOG_PATH = STATE_DIR / "pnl_log.json"
 
 # ── Crash resilience ──────────────────────────────────────────────────
 # Unattended for a week straight — a single uncaught exception (a network
@@ -768,7 +774,7 @@ def run_one_loop() -> None:
                 if not math.isnan(raw_atr):
                     atr_pct = float(raw_atr)
 
-            result     = strategy.generate_ensemble_signal(
+            result     = strategy.generate_signal(
                 processed_df, symbol=ticker, loop_number=loop_counter
             )
             signal     = result["signal"]
@@ -900,7 +906,7 @@ def run_one_loop() -> None:
             "session_pnl": round(session_pnl, 4),
             "holdings":  list(portfolio.keys()),
         }
-        Path("session_snapshot.json").write_text(json.dumps(snap, indent=2))
+        (STATE_DIR / "session_snapshot.json").write_text(json.dumps(snap, indent=2))
     except Exception:
         pass
 
@@ -925,6 +931,7 @@ if __name__ == "__main__":
     sys.stderr = _Tee(sys.stderr, _log_file)
 
     print("🤖 Autonomous Trading Bot v3 initialising...")
+    print(f"   Strategy             : {strategy.STRATEGY_NAME}  (state: {STATE_DIR}/)")
     print(f"   Circuit breaker      : ATR-scaled ({ATR_STOP_MULT}x, clamped {ATR_STOP_FLOOR:.0%}..{ATR_STOP_CEIL:.0%}), "
           f"fallback {CIRCUIT_BREAKER_LOSS_PCT:.1%}")
     print(f"   Profit target        : ATR-scaled ({ATR_TARGET_MULT}x, clamped {ATR_TARGET_FLOOR:.0%}..{ATR_TARGET_CEIL:.0%}), "

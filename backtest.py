@@ -114,7 +114,7 @@ def run_backtest(tickers=TICKERS, lookback_days=LOOKBACK_DAYS, warmup_rows=WARMU
             if len(window) < warmup_rows:
                 continue
 
-            result    = strategy.generate_ensemble_signal(window, symbol=symbol, loop_number=day_idx)
+            result    = strategy.generate_signal(window, symbol=symbol, loop_number=day_idx)
             buy_prob  = result.get("buy_prob", 0.0)
             sell_prob = result.get("sell_prob", 0.0)
             price     = float(window["close"].iloc[-1])
@@ -252,6 +252,10 @@ if __name__ == "__main__":
         "equity_curve": equity_curve,
         "trade_log": trade_log,
     }
-    with open("backtest_results.json", "w") as f:
+    # STRATEGY=sma_cross / mean_reversion saves to its own file so runs never
+    # overwrite each other (the default ensemble keeps the original name).
+    fname = ("backtest_results.json" if strategy.STRATEGY_NAME == "ensemble"
+             else f"backtest_results_{strategy.STRATEGY_NAME}.json")
+    with open(fname, "w") as f:
         json.dump(out, f, indent=2)
-    print("\n💾 Saved backtest_results.json")
+    print(f"\n💾 Saved {fname}")

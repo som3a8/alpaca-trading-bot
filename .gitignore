@@ -9,3 +9,4 @@ backtest_results*.json
 # committed back by the GitHub Actions workflows at the end of each shift
 # so trade history and per-ticker accuracy persist across runs instead of
 # resetting on every fresh checkout.
+retired_startup/

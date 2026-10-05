@@ -1,32 +1,51 @@
-name: Trading Bot - Shift A (morning)
+name: Trading Bots - Shift A (morning)
 
-# Covers 9:20am-2:15pm ET (13:20-18:15 UTC during EDT). Split into two
-# static-timeout workflows instead of one workflow with a computed
-# timeout-minutes expression, after that expression failed to apply on a
-# live run and let the job keep going 7+ hours past market close.
+# Covers 9:20am-2:15pm ET (13:20-18:15 UTC during EDT). Three bots run in
+# parallel as a matrix, each on its own runner against its own Alpaca account
+# (BOTn_API_KEY / BOTn_API_SECRET repo secrets) with its own strategy:
+#   bot1  ensemble        the ML model (control)
+#   bot2  sma_cross       moving-average crossover, no ML (baseline)
+#   bot3  mean_reversion  buy dips / sell the bounce (contrarian)
+# Static timeout, not a computed expression — a computed one failed on a live
+# run once and let the job keep going 7+ hours past market close.
 on:
   schedule:
     - cron: "20 13 * * 1-5"
   workflow_dispatch: {}
 
+# One workflow RUN at a time (shift A hands over to shift B), but the three
+# bots inside a run are separate jobs and do run side by side.
 concurrency:
-  group: trading-bot
+  group: trading-bots
   cancel-in-progress: false
 
 permissions:
-  contents: write   # needed to commit pnl_log.json/signal_ledger.json back
+  contents: write   # needed to commit each bot's trade history back
 
 jobs:
   run:
+    name: ${{ matrix.bot }} (${{ matrix.strategy }})
     runs-on: ubuntu-latest
     timeout-minutes: 295
+    strategy:
+      fail-fast: false   # one bot crashing must not take the others down
+      matrix:
+        include:
+          - { bot: bot1, strategy: ensemble,       mtf: "1", key: BOT1_API_KEY, secret: BOT1_API_SECRET }
+          - { bot: bot2, strategy: sma_cross,      mtf: "0", key: BOT2_API_KEY, secret: BOT2_API_SECRET }
+          - { bot: bot3, strategy: mean_reversion, mtf: "0", key: BOT3_API_KEY, secret: BOT3_API_SECRET }
     env:
-      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
-      ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+      ALPACA_API_KEY: ${{ secrets[matrix.key] }}
+      ALPACA_SECRET_KEY: ${{ secrets[matrix.secret] }}
+      STRATEGY: ${{ matrix.strategy }}
+      MTF_ENABLED: ${{ matrix.mtf }}
+      BOT_STATE_DIR: state/${{ matrix.bot }}
       PYTHONIOENCODING: utf-8
       PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -35,27 +54,30 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run trading bot for this shift
+      - name: Run ${{ matrix.bot }} for this shift
         run: python main.py
 
-      - name: Upload today's log
+      - name: Upload log
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: bot-log-${{ github.run_id }}
+          name: log-${{ matrix.bot }}-${{ github.run_id }}
           path: logs/bot.log
           retention-days: 14
 
-      # pnl_log.json/signal_ledger.json are tracked in git specifically so
-      # they persist across runs (each run is a fresh checkout otherwise).
-      # Committed even if main.py errored partway, to keep whatever history
-      # accumulated before that.
+      # Each bot's pnl_log.json / signal_ledger.json lives in state/<bot>/ and is
+      # tracked in git so history persists across runs. The three bots push to
+      # the same branch at the same moment, so retry with a rebase when one loses.
       - name: Commit updated trade history
         if: always()
         run: |
           git config user.name "trading-bot"
           git config user.email "actions@github.com"
-          git add pnl_log.json signal_ledger.json
+          git add -A "state/${{ matrix.bot }}" || true
           git diff --staged --quiet && exit 0
-          git commit -m "Update trade history (Shift A, run ${{ github.run_id }})"
-          git push || echo "push failed, continuing"
+          git commit -m "Update ${{ matrix.bot }} trade history (Shift A, run ${{ github.run_id }})"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((i * 5))
+          done
+          echo "push failed after retries, continuing"

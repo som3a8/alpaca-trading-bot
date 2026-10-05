@@ -20,6 +20,7 @@ Meta      : signal_ledger.json — per-ticker accuracy, updated on every close
 """
 
 import json
+import os
 import warnings
 import numpy as np
 import pandas as pd
@@ -43,8 +44,15 @@ warnings.filterwarnings("ignore")
 # actual signal/trade history the log exists to capture.
 warnings.warn = lambda *a, **k: None
 
-LEDGER_PATH   = Path("signal_ledger.json")
-CACHE_LOOPS   = 3     # Re-use a fitted model for this many loops before retraining
+# Which signal generator main.py's loop uses — see generate_signal() at the
+# bottom of this file. "ensemble" (default) is the original ML model; the two
+# rule-based ones exist to test whether it actually earns its complexity.
+STRATEGY_NAME = os.getenv("STRATEGY", "ensemble")
+
+# Per-bot state folder, so several bots sharing this code don't overwrite
+# each other's ledgers (main.py uses the same BOT_STATE_DIR for its P&L log).
+LEDGER_PATH   = Path(os.getenv("BOT_STATE_DIR", ".")) / "signal_ledger.json"
+CACHE_LOOPS   = 3    # Re-use a fitted model for this many loops before retraining
 N_ESTIMATORS  = 200   # Trees per ensemble member — tunable (e.g. lowered by backtest.py for speed)
 
 # Experimental: tree-ensemble predict_proba() is known to skew toward extreme
@@ -413,6 +421,7 @@ def _load_ledger() -> dict:
 
 def _save_ledger(ledger: dict) -> None:
     try:
+        LEDGER_PATH.parent.mkdir(parents=True, exist_ok=True)
         LEDGER_PATH.write_text(json.dumps(ledger, indent=2))
     except Exception:
         pass
@@ -732,3 +741,98 @@ def generate_ensemble_signal(df: pd.DataFrame, symbol: str = "",
             "sell_prob": 0.0, "buy_prob": 0.0, "regime_ok": True,
             "reason": f"Model error: {e}",
         }
+
+
+# =====================================================================
+# RULE-BASED STRATEGIES  (no ML — the comparison set)
+# =====================================================================
+# Both return the same dict shape as generate_ensemble_signal(), so main.py's
+# probability gate, position sizing and exit rules apply to them unchanged.
+# A rule firing is reported as a flat 0.50 probability: above the 40% gate and
+# mid-way up the sizing scale. Every rule bot therefore sizes identically, and
+# any difference in results comes from WHEN each one trades, not how much.
+RULE_PROB = 0.50
+
+SMA_FAST_COL, SMA_SLOW_COL = "SMA_20", "SMA_50"
+SMA_CROSS_LOOKBACK = 5     # a "fresh" golden cross = it happened within this many bars
+
+MR_RSI_BUY  = 30           # oversold
+MR_PCTB_BUY = 0.10         # price in the bottom 10% of its Bollinger band (or below it)
+
+
+def _rule_result(signal: str, reason: str) -> dict:
+    p = RULE_PROB if signal != "HOLD" else 0.0
+    return {
+        "signal": signal, "confidence": p, "adjusted": p,
+        "buy_prob":  RULE_PROB if signal == "BUY"  else 0.0,
+        "sell_prob": RULE_PROB if signal == "SELL" else 0.0,
+        "regime_ok": True, "reason": reason,
+    }
+
+
+def generate_sma_cross_signal(df: pd.DataFrame, symbol: str = "",
+                              loop_number: int = 0) -> dict:
+    """
+    Trend-following baseline. BUY on a fresh golden cross (SMA20 moved above
+    SMA50 within the last SMA_CROSS_LOOKBACK bars); SELL once SMA20 is back
+    below SMA50 (main.py ignores a SELL for anything not held). No model,
+    no training, no probabilities.
+    """
+    if len(df) < 60:
+        return _rule_result("HOLD", f"Only {len(df)} bars — need ≥60")
+
+    fast, slow = df[SMA_FAST_COL], df[SMA_SLOW_COL]
+    if pd.isna(fast.iloc[-1]) or pd.isna(slow.iloc[-1]):
+        return _rule_result("HOLD", "SMA not available yet")
+
+    above = fast > slow
+    if not above.iloc[-1]:
+        return _rule_result("SELL", "SMA20 below SMA50 (downtrend)")
+
+    prior = ~above.iloc[-(SMA_CROSS_LOOKBACK + 1):-1]
+    if prior.any():
+        return _rule_result("BUY", f"golden cross within last {SMA_CROSS_LOOKBACK} bars")
+    return _rule_result("HOLD", "in uptrend, no fresh cross")
+
+
+def generate_mean_reversion_signal(df: pd.DataFrame, symbol: str = "",
+                                   loop_number: int = 0) -> dict:
+    """
+    Contrarian baseline — the opposite bet from trend-following. BUY a dip
+    (RSI14 oversold AND price near/under the lower Bollinger band); SELL once
+    price has reverted back up to the 20-day mean (main.py ignores a SELL for
+    anything not held).
+    """
+    if len(df) < 60:
+        return _rule_result("HOLD", f"Only {len(df)} bars — need ≥60")
+
+    last = df.iloc[-1]
+    rsi, pctb = last.get("RSI_14", np.nan), last.get("BB_PctB", np.nan)
+    close, mid = last.get("close", np.nan), last.get("BB_Mid", np.nan)
+    if any(pd.isna(v) for v in (rsi, pctb, close, mid)):
+        return _rule_result("HOLD", "indicators not available yet")
+
+    if rsi < MR_RSI_BUY and pctb < MR_PCTB_BUY:
+        return _rule_result("BUY", f"oversold dip (RSI={rsi:.0f}, %B={pctb:.2f})")
+    if close >= mid:
+        return _rule_result("SELL", "reverted to the 20-day mean")
+    return _rule_result("HOLD", f"waiting (RSI={rsi:.0f}, %B={pctb:.2f})")
+
+
+# =====================================================================
+# STRATEGY DISPATCHER
+# =====================================================================
+_STRATEGIES = {
+    "ensemble":       generate_ensemble_signal,
+    "sma_cross":      generate_sma_cross_signal,
+    "mean_reversion": generate_mean_reversion_signal,
+}
+
+if STRATEGY_NAME not in _STRATEGIES:
+    # Fail at startup, not as a caught-and-retried error inside the trading loop.
+    raise ValueError(f"Unknown STRATEGY={STRATEGY_NAME!r}; choose from {sorted(_STRATEGIES)}")
+
+
+def generate_signal(df: pd.DataFrame, symbol: str = "", loop_number: int = 0) -> dict:
+    """Signal generator for whichever strategy this process is configured to run."""
+    return _STRATEGIES[STRATEGY_NAME](df, symbol=symbol, loop_number=loop_number)

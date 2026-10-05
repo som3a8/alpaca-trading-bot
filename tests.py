@@ -91,6 +91,60 @@ def test_signal_generation_not_degenerate():
     assert 0.0 <= result["sell_prob"] <= 1.0
 
 
+def test_rule_strategies_logic():
+    """The two no-ML strategies, on synthetic frames where the right answer is known."""
+    import numpy as np
+    import pandas as pd
+
+    n = 70
+    def frame(**cols):
+        return pd.DataFrame({k: (v if hasattr(v, "__len__") else [v] * n) for k, v in cols.items()})
+
+    # SMA cross: SMA20 under SMA50 until the last 3 bars, then above -> fresh golden cross
+    fast = np.r_[np.full(n - 3, 99.0), np.full(3, 101.0)]
+    r = strategy.generate_sma_cross_signal(frame(SMA_20=fast, SMA_50=np.full(n, 100.0)))
+    assert r["signal"] == "BUY", f"fresh golden cross should BUY, got {r}"
+    # ...above the whole time (cross long past) -> no entry
+    r = strategy.generate_sma_cross_signal(frame(SMA_20=np.full(n, 101.0), SMA_50=np.full(n, 100.0)))
+    assert r["signal"] == "HOLD", f"old uptrend should HOLD, got {r}"
+    # ...below the whole time -> SELL (ignored by main.py unless held)
+    r = strategy.generate_sma_cross_signal(frame(SMA_20=np.full(n, 99.0), SMA_50=np.full(n, 100.0)))
+    assert r["signal"] == "SELL", f"downtrend should SELL, got {r}"
+
+    # Mean reversion
+    def mr(rsi, pctb, close, mid):
+        return strategy.generate_mean_reversion_signal(
+            frame(RSI_14=rsi, BB_PctB=pctb, close=close, BB_Mid=mid))
+    assert mr(20, 0.05, 95.0, 100.0)["signal"] == "BUY",  "oversold dip should BUY"
+    assert mr(50, 0.50, 99.0, 100.0)["signal"] == "HOLD", "middle of the band should HOLD"
+    assert mr(60, 0.70, 101.0, 100.0)["signal"] == "SELL", "back above the mean should SELL"
+    assert mr(20, 0.50, 95.0, 100.0)["signal"] == "HOLD", "oversold RSI alone isn't enough"
+
+    # Too little history -> never trade
+    short = pd.DataFrame({"SMA_20": [1.0] * 10, "SMA_50": [1.0] * 10})
+    assert strategy.generate_sma_cross_signal(short)["signal"] == "HOLD"
+
+    # A BUY/SELL must clear main.py's probability gate or it would be silently dropped
+    buy = strategy.generate_sma_cross_signal(frame(SMA_20=fast, SMA_50=np.full(n, 100.0)))
+    assert buy["buy_prob"] >= bot_config.MIN_BUY_PROB > buy["sell_prob"]
+
+
+def test_rule_strategies_on_real_data():
+    df = broker.get_historical_market_data("AAPL", lookback_days=400)
+    assert df is not None and len(df) > 100
+    processed = strategy.calculate_indicators(df)
+    for fn in (strategy.generate_sma_cross_signal, strategy.generate_mean_reversion_signal):
+        r = fn(processed, symbol="AAPL")
+        assert r["signal"] in ("BUY", "HOLD", "SELL")
+        for key in ("confidence", "adjusted", "buy_prob", "sell_prob", "regime_ok", "reason"):
+            assert key in r, f"{fn.__name__} result missing {key!r}"
+
+
+def test_strategy_dispatcher():
+    assert strategy.STRATEGY_NAME in ("ensemble", "sma_cross", "mean_reversion")
+    assert callable(strategy.generate_signal)
+
+
 # ── Universe ──────────────────────────────────────────────────────────────
 
 def test_universe_builder():
@@ -162,6 +216,9 @@ if __name__ == "__main__":
         test_occ_symbol_parser,
         test_option_contract_selection,
         test_signal_generation_not_degenerate,
+        test_rule_strategies_logic,
+        test_rule_strategies_on_real_data,
+        test_strategy_dispatcher,
         test_universe_builder,
         test_universe_data_sources_alive,
         test_risk_gate_constants_sane,
