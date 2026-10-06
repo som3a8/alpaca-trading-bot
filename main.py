@@ -157,6 +157,18 @@ PNL_LOG_PATH = STATE_DIR / "pnl_log.json"
 LOG_PATH             = Path("logs/bot.log")
 CRASH_COOLDOWN_SECS  = 60   # pause after a caught loop-level exception before retrying
 
+# GitHub runs this on a best-effort schedule that can start hours late. A run
+# that starts after the close (or on a weekend) has nothing useful to do, so
+# with EXIT_AFTER_CLOSE=1 it ends cleanly instead of looping into the night.
+# Off by default so a local run behaves exactly as before.
+EXIT_AFTER_CLOSE = os.getenv("EXIT_AFTER_CLOSE", "0") == "1"
+
+
+def _session_over() -> bool:
+    import zoneinfo
+    now = datetime.now(zoneinfo.ZoneInfo("America/New_York"))
+    return now.weekday() >= 5 or (now.hour, now.minute) >= (16, 5)
+
 
 class _Tee:
     """Mirrors writes to multiple streams (console + a persistent log file)."""
@@ -955,6 +967,9 @@ if __name__ == "__main__":
         print("   Options sleeve       : disabled")
 
     while True:
+        if EXIT_AFTER_CLOSE and _session_over():
+            print("\n🔔 Session over (market closed for the day) — exiting cleanly.")
+            break
         try:
             run_one_loop()
         except Exception:

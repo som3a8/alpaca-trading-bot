@@ -1,0 +1,111 @@
+name: Trading Bots
+
+# GitHub starts scheduled workflows on a best-effort basis, and recently they
+# started hours late (a 9:20am run began after the close) or not at all. So
+# instead of two fixed shifts, this fires a cheap check every 30 minutes through
+# the morning and midday. Whichever tick fires first after the open starts the
+# bots; a late or dropped tick just means the next one covers it. The bots stop
+# themselves at the close (EXIT_AFTER_CLOSE), so a run that starts late never
+# loops on into the night.
+#
+# Cron is UTC. 13:00-19:30 UTC = 9:00am-3:30pm ET during daylight time. After
+# clocks change on Nov 1 that becomes 8:00am-2:30pm ET: still covers the open
+# and the close, just starts an hour earlier.
+#
+#   bot1  ensemble        the ML model (control)
+#   bot2  sma_cross       moving-average crossover, no ML (baseline)
+#   bot3  mean_reversion  buy dips / sell the bounce (contrarian)
+on:
+  schedule:
+    - cron: "*/30 13-19 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # commit each bot's trade history back
+  actions: read     # the gate job lists running workflow runs
+
+jobs:
+  # Exactly one bot-running workflow run may be active at a time. Every tick starts
+  # one of these; only the oldest in-progress run proceeds, the rest exit as a no-op.
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      proceed: ${{ steps.check.outputs.proceed }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ids=$(gh api "repos/${{ github.repository }}/actions/workflows/bots.yml/runs?status=in_progress&per_page=50" \
+                  --jq '[.workflow_runs[].id] | sort | .[]') || { echo "API check failed, skipping this tick"; echo "proceed=false" >> "$GITHUB_OUTPUT"; exit 0; }
+          oldest=$(echo "$ids" | head -n1)
+          echo "in-progress runs: $(echo $ids | tr '\n' ' ') | this run: ${{ github.run_id }}"
+          if [ "$oldest" = "${{ github.run_id }}" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Another run is already trading, nothing to do."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  run:
+    needs: gate
+    if: needs.gate.outputs.proceed == 'true'
+    name: ${{ matrix.bot }} (${{ matrix.strategy }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false   # one bot crashing must not take the others down
+      matrix:
+        include:
+          - { bot: bot1, strategy: ensemble,       mtf: "1", key: BOT1_API_KEY, secret: BOT1_API_SECRET }
+          - { bot: bot2, strategy: sma_cross,      mtf: "0", key: BOT2_API_KEY, secret: BOT2_API_SECRET }
+          - { bot: bot3, strategy: mean_reversion, mtf: "0", key: BOT3_API_KEY, secret: BOT3_API_SECRET }
+    env:
+      ALPACA_API_KEY: ${{ secrets[matrix.key] }}
+      ALPACA_SECRET_KEY: ${{ secrets[matrix.secret] }}
+      STRATEGY: ${{ matrix.strategy }}
+      MTF_ENABLED: ${{ matrix.mtf }}
+      BOT_STATE_DIR: state/${{ matrix.bot }}
+      EXIT_AFTER_CLOSE: "1"
+      PYTHONIOENCODING: utf-8
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run ${{ matrix.bot }}
+        run: python main.py
+
+      - name: Upload log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: log-${{ matrix.bot }}-${{ github.run_id }}
+          path: logs/bot.log
+          retention-days: 14
+
+      # Each bot's pnl_log.json / signal_ledger.json lives in state/<bot>/ and is
+      # tracked in git. The three bots push to the same branch at the same moment,
+      # so retry with a rebase when one loses the race.
+      - name: Commit updated trade history
+        if: always()
+        run: |
+          git config user.name "trading-bot"
+          git config user.email "actions@github.com"
+          git add -A "state/${{ matrix.bot }}" || true
+          git diff --staged --quiet && exit 0
+          git commit -m "Update ${{ matrix.bot }} trade history (run ${{ github.run_id }})"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((i * 5))
+          done
+          echo "push failed after retries, continuing"
