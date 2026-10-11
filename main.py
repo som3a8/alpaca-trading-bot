@@ -163,11 +163,28 @@ CRASH_COOLDOWN_SECS  = 60   # pause after a caught loop-level exception before r
 # Off by default so a local run behaves exactly as before.
 EXIT_AFTER_CLOSE = os.getenv("EXIT_AFTER_CLOSE", "0") == "1"
 
+# A GitHub job is killed at 6h but the trading day is 6.5h, so each run stops
+# itself after MAX_RUNTIME_MIN and the workflow starts a continuation run for
+# the rest of the day. 0 = no cap (local runs).
+MAX_RUNTIME_MIN = float(os.getenv("MAX_RUNTIME_MIN", "0"))
+_STARTED_AT = time.time()
 
-def _session_over() -> bool:
+
+def _et_now(now=None):
     import zoneinfo
-    now = datetime.now(zoneinfo.ZoneInfo("America/New_York"))
+    return now or datetime.now(zoneinfo.ZoneInfo("America/New_York"))
+
+
+def _session_over(now=None) -> bool:
+    now = _et_now(now)
     return now.weekday() >= 5 or (now.hour, now.minute) >= (16, 5)
+
+
+def _market_not_open_yet(now=None) -> bool:
+    """True on a weekday before 9:31am ET. A run that starts early waits instead of
+    queueing orders on yesterday's prices that would fill at the open."""
+    now = _et_now(now)
+    return now.weekday() < 5 and (now.hour, now.minute) < (9, 31)
 
 
 class _Tee:
@@ -969,6 +986,13 @@ if __name__ == "__main__":
     while True:
         if EXIT_AFTER_CLOSE and _session_over():
             print("\n🔔 Session over (market closed for the day) — exiting cleanly.")
+            break
+        if EXIT_AFTER_CLOSE and _market_not_open_yet():
+            print("\n⏳ Market not open yet — waiting for 9:31am ET.")
+            while _market_not_open_yet():
+                time.sleep(30)
+        if MAX_RUNTIME_MIN and (time.time() - _STARTED_AT) / 60 >= MAX_RUNTIME_MIN:
+            print(f"\n🔁 Ran {MAX_RUNTIME_MIN:.0f} min — exiting so the continuation run can take over.")
             break
         try:
             run_one_loop()

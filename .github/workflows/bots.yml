@@ -1,56 +1,33 @@
 name: Trading Bots
 
-# GitHub starts scheduled workflows on a best-effort basis, and recently they
-# started hours late (a 9:20am run began after the close) or not at all. So
-# instead of two fixed shifts, this fires a cheap check every 30 minutes through
-# the morning and midday. Whichever tick fires first after the open starts the
-# bots; a late or dropped tick just means the next one covers it. The bots stop
-# themselves at the close (EXIT_AFTER_CLOSE), so a run that starts late never
-# loops on into the night.
-#
-# Cron is UTC. 13:00-19:30 UTC = 9:00am-3:30pm ET during daylight time. After
-# clocks change on Nov 1 that becomes 8:00am-2:30pm ET: still covers the open
-# and the close, just starts an hour earlier.
-#
+# Runs three bots side by side, each against its own Alpaca account:
 #   bot1  ensemble        the ML model (control)
 #   bot2  sma_cross       moving-average crossover, no ML (baseline)
 #   bot3  mean_reversion  buy dips / sell the bounce (contrarian)
+#
+# GitHub's scheduler is unreliable for this: ticks arrive hours late (often not
+# until 2:30pm ET) and most are dropped. So the start is deliberately forgiving:
+#   - many scheduled ticks, any one of which can start the day;
+#   - a manual "Run workflow" click works the same way;
+#   - an external timer can POST to the dispatch API (see README notes) for an
+#     on-time 9:20am start.
+# `concurrency` guarantees only one set of bots ever runs; extra ticks wait
+# behind it and, finding the market closed, exit within a minute.
 on:
   schedule:
-    - cron: "*/30 13-19 * * 1-5"
+    - cron: "7,22,37,52 12-19 * * 1-5"   # UTC; 8am-4pm EDT / 7am-3pm EST
   workflow_dispatch: {}
+
+concurrency:
+  group: trading-bots
+  cancel-in-progress: false
 
 permissions:
   contents: write   # commit each bot's trade history back
-  actions: read     # the gate job lists running workflow runs
+  actions: write    # start the continuation run
 
 jobs:
-  # Exactly one bot-running workflow run may be active at a time. Every tick starts
-  # one of these; only the oldest in-progress run proceeds, the rest exit as a no-op.
-  gate:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    outputs:
-      proceed: ${{ steps.check.outputs.proceed }}
-    steps:
-      - id: check
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          ids=$(gh api "repos/${{ github.repository }}/actions/workflows/bots.yml/runs?status=in_progress&per_page=50" \
-                  --jq '[.workflow_runs[].id] | sort | .[]') || { echo "API check failed, skipping this tick"; echo "proceed=false" >> "$GITHUB_OUTPUT"; exit 0; }
-          oldest=$(echo "$ids" | head -n1)
-          echo "in-progress runs: $(echo $ids | tr '\n' ' ') | this run: ${{ github.run_id }}"
-          if [ "$oldest" = "${{ github.run_id }}" ]; then
-            echo "proceed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "Another run is already trading, nothing to do."
-            echo "proceed=false" >> "$GITHUB_OUTPUT"
-          fi
-
   run:
-    needs: gate
-    if: needs.gate.outputs.proceed == 'true'
     name: ${{ matrix.bot }} (${{ matrix.strategy }})
     runs-on: ubuntu-latest
     timeout-minutes: 355
@@ -67,7 +44,8 @@ jobs:
       STRATEGY: ${{ matrix.strategy }}
       MTF_ENABLED: ${{ matrix.mtf }}
       BOT_STATE_DIR: state/${{ matrix.bot }}
-      EXIT_AFTER_CLOSE: "1"
+      EXIT_AFTER_CLOSE: "1"   # wait for the open, stop after the close
+      MAX_RUNTIME_MIN: "345"  # stop just before GitHub's 6h kill; handoff continues
       PYTHONIOENCODING: utf-8
       PYTHONUNBUFFERED: "1"
     steps:
@@ -109,3 +87,28 @@ jobs:
             sleep $((i * 5))
           done
           echo "push failed after retries, continuing"
+
+  # The trading day (6.5h) is longer than one job can live (6h). If this run
+  # stopped because of its runtime cap and the market is still open, start a
+  # continuation; it queues behind this run and takes over when it finishes.
+  # Requiring 300+ minutes of runtime means a run that dies early can never
+  # trigger a runaway chain of restarts.
+  handoff:
+    needs: run
+    if: always() && needs.run.result != 'skipped'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mins=$(( ( $(date +%s) - $(date -d "${{ github.run_started_at }}" +%s) ) / 60 ))
+          dow=$(TZ=America/New_York date +%u)
+          hm=$((10#$(TZ=America/New_York date +%H%M)))
+          echo "ran ${mins} min | ET weekday=${dow} time=${hm}"
+          if [ "$mins" -ge 300 ] && [ "$dow" -le 5 ] && [ "$hm" -ge 930 ] && [ "$hm" -lt 1555 ]; then
+            echo "Market still open - starting the continuation run."
+            gh workflow run bots.yml --repo "${{ github.repository }}" --ref main
+          else
+            echo "No continuation needed."
+          fi

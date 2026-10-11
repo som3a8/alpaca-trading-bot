@@ -140,6 +140,27 @@ def test_rule_strategies_on_real_data():
             assert key in r, f"{fn.__name__} result missing {key!r}"
 
 
+def test_session_window_helpers():
+    """The wait-for-open / stop-after-close logic that keeps late GitHub starts harmless."""
+    import zoneinfo
+    from datetime import datetime
+    et = zoneinfo.ZoneInfo("America/New_York")
+    def at(y, m, d, hh, mm):
+        return datetime(y, m, d, hh, mm, tzinfo=et)
+
+    tue = lambda hh, mm: at(2026, 10, 6, hh, mm)      # a Tuesday
+    sat = lambda hh, mm: at(2026, 10, 10, hh, mm)     # a Saturday
+    f_over, f_early = bot_config._session_over, bot_config._market_not_open_yet
+
+    assert f_early(tue(8, 20)) and f_early(tue(9, 30)), "before 9:31 on a weekday = not open yet"
+    assert not f_early(tue(9, 31)) and not f_early(tue(14, 0))
+    assert not f_early(sat(8, 0)), "weekends must not make a run wait for an open that never comes"
+
+    assert not f_over(tue(9, 0)) and not f_over(tue(16, 4)), "still trading until 4:05pm"
+    assert f_over(tue(16, 5)) and f_over(tue(20, 0)), "past 4:05pm the run should end"
+    assert f_over(sat(11, 0)), "a weekend run should end immediately"
+
+
 def test_strategy_dispatcher():
     assert strategy.STRATEGY_NAME in ("ensemble", "sma_cross", "mean_reversion")
     assert callable(strategy.generate_signal)
@@ -219,6 +240,7 @@ if __name__ == "__main__":
         test_rule_strategies_logic,
         test_rule_strategies_on_real_data,
         test_strategy_dispatcher,
+        test_session_window_helpers,
         test_universe_builder,
         test_universe_data_sources_alive,
         test_risk_gate_constants_sane,
