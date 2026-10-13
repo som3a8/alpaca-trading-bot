@@ -1,0 +1,20 @@
+[
+  {
+    "ts": "2026-10-13T19:09:06",
+    "pnl": -18.6892,
+    "reason": "circuit breaker INOD",
+    "cumulative": -18.6892
+  },
+  {
+    "ts": "2026-10-13T19:09:07",
+    "pnl": -8.1502,
+    "reason": "circuit breaker NXPI",
+    "cumulative": -26.8394
+  },
+  {
+    "ts": "2026-10-13T19:32:04",
+    "pnl": -8.9174,
+    "reason": "circuit breaker PCVX",
+    "cumulative": -35.7568
+  }
+]
