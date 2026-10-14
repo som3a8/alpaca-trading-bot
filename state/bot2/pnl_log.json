@@ -16,5 +16,71 @@
     "pnl": -8.9174,
     "reason": "circuit breaker PCVX",
     "cumulative": -35.7568
+  },
+  {
+    "ts": "2026-10-14T16:57:28",
+    "pnl": -6.6876,
+    "reason": "circuit breaker ETN",
+    "cumulative": -42.4444
+  },
+  {
+    "ts": "2026-10-14T16:57:29",
+    "pnl": -16.3069,
+    "reason": "circuit breaker TXN",
+    "cumulative": -58.7513
+  },
+  {
+    "ts": "2026-10-14T18:04:02",
+    "pnl": -0.001,
+    "reason": "stale exit MAR",
+    "cumulative": -58.7523
+  },
+  {
+    "ts": "2026-10-14T18:04:02",
+    "pnl": -0.385,
+    "reason": "stale exit PTC",
+    "cumulative": -59.1373
+  },
+  {
+    "ts": "2026-10-14T18:04:02",
+    "pnl": -0.0133,
+    "reason": "stale exit V",
+    "cumulative": -59.1506
+  },
+  {
+    "ts": "2026-10-14T18:43:06",
+    "pnl": -0.0461,
+    "reason": "stale exit LRCX",
+    "cumulative": -59.1967
+  },
+  {
+    "ts": "2026-10-14T18:48:39",
+    "pnl": -0.3357,
+    "reason": "stale exit CDNS",
+    "cumulative": -59.5324
+  },
+  {
+    "ts": "2026-10-14T19:11:14",
+    "pnl": -0.2933,
+    "reason": "stale exit V",
+    "cumulative": -59.8257
+  },
+  {
+    "ts": "2026-10-14T19:27:46",
+    "pnl": 0.0173,
+    "reason": "stale exit AMAT",
+    "cumulative": -59.8084
+  },
+  {
+    "ts": "2026-10-14T19:27:46",
+    "pnl": 0.1983,
+    "reason": "stale exit GLW",
+    "cumulative": -59.6101
+  },
+  {
+    "ts": "2026-10-14T19:33:18",
+    "pnl": -0.4982,
+    "reason": "stale exit GNRC",
+    "cumulative": -60.1083
   }
 ]

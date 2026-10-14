@@ -28,5 +28,105 @@
     "hold_total": 0,
     "total_pnl": -8.9174,
     "trade_count": 1
+  },
+  "ETN": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -6.6876,
+    "trade_count": 1
+  },
+  "TXN": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -16.3069,
+    "trade_count": 1
+  },
+  "MAR": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.001,
+    "trade_count": 1
+  },
+  "PTC": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.385,
+    "trade_count": 1
+  },
+  "V": {
+    "buy_correct": 0,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.3066,
+    "trade_count": 2
+  },
+  "LRCX": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0461,
+    "trade_count": 1
+  },
+  "CDNS": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.3357,
+    "trade_count": 1
+  },
+  "AMAT": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.0173,
+    "trade_count": 1
+  },
+  "GLW": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.1983,
+    "trade_count": 1
+  },
+  "GNRC": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.4982,
+    "trade_count": 1
   }
 }
