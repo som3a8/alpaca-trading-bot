@@ -1,0 +1,104 @@
+[
+  {
+    "ts": "2026-10-14T16:57:29",
+    "pnl": -10.0064,
+    "reason": "circuit breaker KKR",
+    "cumulative": -10.0064
+  },
+  {
+    "ts": "2026-10-14T18:05:02",
+    "pnl": -1.6851,
+    "reason": "stale exit ALB",
+    "cumulative": -11.6915
+  },
+  {
+    "ts": "2026-10-14T18:05:03",
+    "pnl": -0.1865,
+    "reason": "stale exit BAC",
+    "cumulative": -11.878
+  },
+  {
+    "ts": "2026-10-14T18:05:03",
+    "pnl": -0.786,
+    "reason": "stale exit DOC",
+    "cumulative": -12.664
+  },
+  {
+    "ts": "2026-10-14T18:05:03",
+    "pnl": -0.1008,
+    "reason": "stale exit GS",
+    "cumulative": -12.7648
+  },
+  {
+    "ts": "2026-10-14T18:05:03",
+    "pnl": -0.6606,
+    "reason": "stale exit JNJ",
+    "cumulative": -13.4254
+  },
+  {
+    "ts": "2026-10-14T18:44:39",
+    "pnl": 0.2778,
+    "reason": "stale exit TROW",
+    "cumulative": -13.1476
+  },
+  {
+    "ts": "2026-10-14T18:50:17",
+    "pnl": -0.0383,
+    "reason": "stale exit AAL",
+    "cumulative": -13.1859
+  },
+  {
+    "ts": "2026-10-14T18:50:18",
+    "pnl": 0.233,
+    "reason": "stale exit CRWV",
+    "cumulative": -12.9529
+  },
+  {
+    "ts": "2026-10-14T18:55:52",
+    "pnl": 0.0318,
+    "reason": "stale exit IVZ",
+    "cumulative": -12.9211
+  },
+  {
+    "ts": "2026-10-14T19:07:23",
+    "pnl": -9.4858,
+    "reason": "circuit breaker IMNM",
+    "cumulative": -22.4069
+  },
+  {
+    "ts": "2026-10-14T19:13:03",
+    "pnl": 1.7789,
+    "reason": "stale exit BAC",
+    "cumulative": -20.628
+  },
+  {
+    "ts": "2026-10-14T19:13:03",
+    "pnl": 0.7751,
+    "reason": "stale exit GS",
+    "cumulative": -19.8529
+  },
+  {
+    "ts": "2026-10-14T19:13:04",
+    "pnl": -0.0187,
+    "reason": "stale exit MS",
+    "cumulative": -19.8716
+  },
+  {
+    "ts": "2026-10-14T19:24:12",
+    "pnl": -0.2041,
+    "reason": "stale exit CORZ",
+    "cumulative": -20.0757
+  },
+  {
+    "ts": "2026-10-14T19:58:01",
+    "pnl": 0.4146,
+    "reason": "stale exit AAL",
+    "cumulative": -19.6611
+  },
+  {
+    "ts": "2026-10-14T20:03:36",
+    "pnl": 0.1328,
+    "reason": "stale exit IVZ",
+    "cumulative": -19.5283
+  }
+]
