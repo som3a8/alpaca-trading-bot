@@ -1,0 +1,32 @@
+[
+  {
+    "ts": "2026-10-14T18:17:48",
+    "pnl": 1.0006,
+    "reason": "stale exit EVRG",
+    "cumulative": 1.0006
+  },
+  {
+    "ts": "2026-10-14T18:17:48",
+    "pnl": 0.2912,
+    "reason": "stale exit IEX",
+    "cumulative": 1.2918
+  },
+  {
+    "ts": "2026-10-14T18:17:48",
+    "pnl": -0.2726,
+    "reason": "stale exit JPM",
+    "cumulative": 1.0192
+  },
+  {
+    "ts": "2026-10-14T18:17:48",
+    "pnl": -0.0638,
+    "reason": "stale exit TRGP",
+    "cumulative": 0.9554
+  },
+  {
+    "ts": "2026-10-14T19:12:00",
+    "pnl": 0.0504,
+    "reason": "stale exit AAPL",
+    "cumulative": 1.0058
+  }
+]

@@ -8,5 +8,55 @@
     "hold_total": 0,
     "total_pnl": 0.4364,
     "trade_count": 1
+  },
+  "EVRG": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 1.0006,
+    "trade_count": 1
+  },
+  "IEX": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.2912,
+    "trade_count": 1
+  },
+  "JPM": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.2726,
+    "trade_count": 1
+  },
+  "TRGP": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0638,
+    "trade_count": 1
+  },
+  "AAPL": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.0504,
+    "trade_count": 1
   }
 }
