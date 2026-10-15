@@ -82,5 +82,77 @@
     "pnl": -0.4982,
     "reason": "stale exit GNRC",
     "cumulative": -60.1083
+  },
+  {
+    "ts": "2026-10-15T16:44:19",
+    "pnl": -2.2977,
+    "reason": "circuit breaker GLW",
+    "cumulative": -62.406
+  },
+  {
+    "ts": "2026-10-15T17:52:48",
+    "pnl": -0.0273,
+    "reason": "stale exit GOOG",
+    "cumulative": -62.4333
+  },
+  {
+    "ts": "2026-10-15T17:52:49",
+    "pnl": -3.7688,
+    "reason": "stale exit GOOGL",
+    "cumulative": -66.2021
+  },
+  {
+    "ts": "2026-10-15T17:52:49",
+    "pnl": -0.0398,
+    "reason": "stale exit PTC",
+    "cumulative": -66.2419
+  },
+  {
+    "ts": "2026-10-15T17:52:49",
+    "pnl": -0.0322,
+    "reason": "stale exit WMT",
+    "cumulative": -66.2741
+  },
+  {
+    "ts": "2026-10-15T18:33:02",
+    "pnl": 0.3101,
+    "reason": "stale exit EL",
+    "cumulative": -65.964
+  },
+  {
+    "ts": "2026-10-15T18:33:02",
+    "pnl": 0.1074,
+    "reason": "stale exit HST",
+    "cumulative": -65.8566
+  },
+  {
+    "ts": "2026-10-15T19:01:44",
+    "pnl": 0.3959,
+    "reason": "stale exit GOOGL",
+    "cumulative": -65.4607
+  },
+  {
+    "ts": "2026-10-15T19:01:45",
+    "pnl": -0.4375,
+    "reason": "stale exit WMT",
+    "cumulative": -65.8982
+  },
+  {
+    "ts": "2026-10-15T19:18:49",
+    "pnl": 0.1589,
+    "reason": "stale exit IT",
+    "cumulative": -65.7393
+  },
+  {
+    "ts": "2026-10-15T19:30:09",
+    "pnl": -0.1376,
+    "reason": "stale exit AME",
+    "cumulative": -65.8769
+  },
+  {
+    "ts": "2026-10-15T20:04:29",
+    "pnl": 0.0071,
+    "reason": "stale exit EL",
+    "cumulative": -65.8698
   }
 ]
