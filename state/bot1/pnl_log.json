@@ -28,5 +28,53 @@
     "pnl": 0.0504,
     "reason": "stale exit AAPL",
     "cumulative": 1.0058
+  },
+  {
+    "ts": "2026-10-15T18:02:16",
+    "pnl": 0.1304,
+    "reason": "stale exit AAPL",
+    "cumulative": 1.1362
+  },
+  {
+    "ts": "2026-10-15T18:02:16",
+    "pnl": -0.5028,
+    "reason": "stale exit MSFT",
+    "cumulative": 0.6334
+  },
+  {
+    "ts": "2026-10-15T18:02:17",
+    "pnl": -0.092,
+    "reason": "stale exit TRV",
+    "cumulative": 0.5414
+  },
+  {
+    "ts": "2026-10-15T18:40:42",
+    "pnl": -0.1273,
+    "reason": "stale exit ADBE",
+    "cumulative": 0.4141
+  },
+  {
+    "ts": "2026-10-15T19:19:10",
+    "pnl": -1.9353,
+    "reason": "stale exit GS",
+    "cumulative": -1.5212
+  },
+  {
+    "ts": "2026-10-15T19:31:07",
+    "pnl": 0.3935,
+    "reason": "stale exit JPM",
+    "cumulative": -1.1277
+  },
+  {
+    "ts": "2026-10-15T19:31:07",
+    "pnl": -0.1716,
+    "reason": "stale exit MRK",
+    "cumulative": -1.2993
+  },
+  {
+    "ts": "2026-10-15T19:49:37",
+    "pnl": -0.4364,
+    "reason": "stale exit TSN",
+    "cumulative": -1.7357
   }
 ]

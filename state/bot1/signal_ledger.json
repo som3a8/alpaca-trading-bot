@@ -30,14 +30,14 @@
     "trade_count": 1
   },
   "JPM": {
-    "buy_correct": 0,
-    "buy_total": 1,
+    "buy_correct": 1,
+    "buy_total": 2,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.2726,
-    "trade_count": 1
+    "total_pnl": 0.1209,
+    "trade_count": 2
   },
   "TRGP": {
     "buy_correct": 0,
@@ -50,13 +50,73 @@
     "trade_count": 1
   },
   "AAPL": {
-    "buy_correct": 1,
+    "buy_correct": 2,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.1808,
+    "trade_count": 2
+  },
+  "MSFT": {
+    "buy_correct": 0,
     "buy_total": 1,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.0504,
+    "total_pnl": -0.5028,
+    "trade_count": 1
+  },
+  "TRV": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.092,
+    "trade_count": 1
+  },
+  "ADBE": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.1273,
+    "trade_count": 1
+  },
+  "GS": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -1.9353,
+    "trade_count": 1
+  },
+  "MRK": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.1716,
+    "trade_count": 1
+  },
+  "TSN": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.4364,
     "trade_count": 1
   }
 }
