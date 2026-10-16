@@ -76,5 +76,41 @@
     "pnl": -0.4364,
     "reason": "stale exit TSN",
     "cumulative": -1.7357
+  },
+  {
+    "ts": "2026-10-16T17:07:40",
+    "pnl": -2.6376,
+    "reason": "circuit breaker GOOGL",
+    "cumulative": -4.3733
+  },
+  {
+    "ts": "2026-10-16T17:49:55",
+    "pnl": -0.0857,
+    "reason": "stale exit APD",
+    "cumulative": -4.459
+  },
+  {
+    "ts": "2026-10-16T17:49:56",
+    "pnl": 0.1501,
+    "reason": "stale exit MRK",
+    "cumulative": -4.3089
+  },
+  {
+    "ts": "2026-10-16T18:39:50",
+    "pnl": 0.218,
+    "reason": "stale exit HIG",
+    "cumulative": -4.0909
+  },
+  {
+    "ts": "2026-10-16T18:52:49",
+    "pnl": -0.1254,
+    "reason": "stale exit NOW",
+    "cumulative": -4.2163
+  },
+  {
+    "ts": "2026-10-16T19:07:40",
+    "pnl": -0.1823,
+    "reason": "stale exit XYL",
+    "cumulative": -4.3986
   }
 ]
