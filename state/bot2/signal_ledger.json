@@ -70,14 +70,14 @@
     "trade_count": 2
   },
   "V": {
-    "buy_correct": 0,
-    "buy_total": 2,
+    "buy_correct": 2,
+    "buy_total": 5,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.3066,
-    "trade_count": 2
+    "total_pnl": 2.5923,
+    "trade_count": 5
   },
   "LRCX": {
     "buy_correct": 0,
@@ -150,14 +150,14 @@
     "trade_count": 2
   },
   "WMT": {
-    "buy_correct": 0,
-    "buy_total": 2,
+    "buy_correct": 2,
+    "buy_total": 5,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.4697,
-    "trade_count": 2
+    "total_pnl": 0.5109,
+    "trade_count": 5
   },
   "EL": {
     "buy_correct": 2,
@@ -171,23 +171,23 @@
   },
   "HST": {
     "buy_correct": 1,
-    "buy_total": 1,
+    "buy_total": 3,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.1074,
-    "trade_count": 1
+    "total_pnl": -0.0618,
+    "trade_count": 3
   },
   "IT": {
-    "buy_correct": 1,
-    "buy_total": 1,
+    "buy_correct": 2,
+    "buy_total": 2,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.1589,
-    "trade_count": 1
+    "total_pnl": 0.3949,
+    "trade_count": 2
   },
   "AME": {
     "buy_correct": 0,
@@ -197,6 +197,66 @@
     "hold_correct": 0,
     "hold_total": 0,
     "total_pnl": -0.1376,
+    "trade_count": 1
+  },
+  "CIEN": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -2.7852,
+    "trade_count": 1
+  },
+  "EMR": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0702,
+    "trade_count": 1
+  },
+  "WRB": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.0242,
+    "trade_count": 1
+  },
+  "LUV": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.1423,
+    "trade_count": 1
+  },
+  "GEV": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0418,
+    "trade_count": 1
+  },
+  "KDP": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.1639,
     "trade_count": 1
   }
 }

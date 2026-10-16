@@ -154,5 +154,95 @@
     "pnl": 0.0071,
     "reason": "stale exit EL",
     "cumulative": -65.8698
+  },
+  {
+    "ts": "2026-10-16T16:26:43",
+    "pnl": -2.7852,
+    "reason": "circuit breaker CIEN",
+    "cumulative": -68.655
+  },
+  {
+    "ts": "2026-10-16T17:34:36",
+    "pnl": -0.0702,
+    "reason": "stale exit EMR",
+    "cumulative": -68.7252
+  },
+  {
+    "ts": "2026-10-16T17:34:36",
+    "pnl": -0.1218,
+    "reason": "stale exit HST",
+    "cumulative": -68.847
+  },
+  {
+    "ts": "2026-10-16T17:34:36",
+    "pnl": 2.7733,
+    "reason": "stale exit V",
+    "cumulative": -66.0737
+  },
+  {
+    "ts": "2026-10-16T17:34:36",
+    "pnl": 1.1028,
+    "reason": "stale exit WMT",
+    "cumulative": -64.9709
+  },
+  {
+    "ts": "2026-10-16T18:14:52",
+    "pnl": 0.236,
+    "reason": "stale exit IT",
+    "cumulative": -64.7349
+  },
+  {
+    "ts": "2026-10-16T18:14:52",
+    "pnl": 0.0242,
+    "reason": "stale exit WRB",
+    "cumulative": -64.7107
+  },
+  {
+    "ts": "2026-10-16T18:43:25",
+    "pnl": -0.4639,
+    "reason": "stale exit V",
+    "cumulative": -65.1746
+  },
+  {
+    "ts": "2026-10-16T18:43:25",
+    "pnl": -0.2361,
+    "reason": "stale exit WMT",
+    "cumulative": -65.4107
+  },
+  {
+    "ts": "2026-10-16T19:00:19",
+    "pnl": -0.0474,
+    "reason": "stale exit HST",
+    "cumulative": -65.4581
+  },
+  {
+    "ts": "2026-10-16T19:00:19",
+    "pnl": -0.1423,
+    "reason": "stale exit LUV",
+    "cumulative": -65.6004
+  },
+  {
+    "ts": "2026-10-16T19:45:45",
+    "pnl": -0.0418,
+    "reason": "stale exit GEV",
+    "cumulative": -65.6422
+  },
+  {
+    "ts": "2026-10-16T19:45:45",
+    "pnl": 0.1639,
+    "reason": "stale exit KDP",
+    "cumulative": -65.4783
+  },
+  {
+    "ts": "2026-10-16T19:51:21",
+    "pnl": 0.5895,
+    "reason": "stale exit V",
+    "cumulative": -64.8888
+  },
+  {
+    "ts": "2026-10-16T19:51:21",
+    "pnl": 0.1139,
+    "reason": "stale exit WMT",
+    "cumulative": -64.7749
   }
 ]
