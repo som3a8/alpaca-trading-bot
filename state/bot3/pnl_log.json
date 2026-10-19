@@ -244,5 +244,17 @@
     "pnl": -0.002,
     "reason": "stale exit APLD",
     "cumulative": -25.6921
+  },
+  {
+    "ts": "2026-10-19T19:45:18",
+    "pnl": 1.1585,
+    "reason": "stale exit CLSK",
+    "cumulative": -24.5336
+  },
+  {
+    "ts": "2026-10-19T19:56:25",
+    "pnl": -0.0044,
+    "reason": "stale exit CAT",
+    "cumulative": -24.538
   }
 ]

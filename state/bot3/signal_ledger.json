@@ -248,5 +248,25 @@
     "hold_total": 0,
     "total_pnl": -0.002,
     "trade_count": 1
+  },
+  "CLSK": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 1.1585,
+    "trade_count": 1
+  },
+  "CAT": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0044,
+    "trade_count": 1
   }
 }
