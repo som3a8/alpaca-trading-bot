@@ -112,5 +112,23 @@
     "pnl": -0.1823,
     "reason": "stale exit XYL",
     "cumulative": -4.3986
+  },
+  {
+    "ts": "2026-10-19T19:58:51",
+    "pnl": 0.3823,
+    "reason": "stale exit PGR",
+    "cumulative": -4.0163
+  },
+  {
+    "ts": "2026-10-19T19:58:51",
+    "pnl": -0.187,
+    "reason": "stale exit TGT",
+    "cumulative": -4.2033
+  },
+  {
+    "ts": "2026-10-19T19:58:52",
+    "pnl": -0.1138,
+    "reason": "stale exit ULTA",
+    "cumulative": -4.3171
   }
 ]

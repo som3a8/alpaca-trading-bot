@@ -178,5 +178,35 @@
     "hold_total": 0,
     "total_pnl": 3.034,
     "trade_count": 1
+  },
+  "PGR": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.3823,
+    "trade_count": 1
+  },
+  "TGT": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.187,
+    "trade_count": 1
+  },
+  "ULTA": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.1138,
+    "trade_count": 1
   }
 }
