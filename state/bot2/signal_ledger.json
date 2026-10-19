@@ -70,14 +70,14 @@
     "trade_count": 2
   },
   "V": {
-    "buy_correct": 2,
-    "buy_total": 5,
+    "buy_correct": 3,
+    "buy_total": 6,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 2.5923,
-    "trade_count": 5
+    "total_pnl": 2.6651,
+    "trade_count": 6
   },
   "LRCX": {
     "buy_correct": 0,
@@ -140,24 +140,24 @@
     "trade_count": 1
   },
   "GOOGL": {
-    "buy_correct": 1,
-    "buy_total": 2,
+    "buy_correct": 2,
+    "buy_total": 3,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -3.3729,
-    "trade_count": 2
+    "total_pnl": 0.1447,
+    "trade_count": 3
   },
   "WMT": {
     "buy_correct": 2,
-    "buy_total": 5,
+    "buy_total": 6,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.5109,
-    "trade_count": 5
+    "total_pnl": 0.4881,
+    "trade_count": 6
   },
   "EL": {
     "buy_correct": 2,
@@ -257,6 +257,46 @@
     "hold_correct": 0,
     "hold_total": 0,
     "total_pnl": 0.1639,
+    "trade_count": 1
+  },
+  "FAST": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.1309,
+    "trade_count": 1
+  },
+  "WSM": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0149,
+    "trade_count": 1
+  },
+  "COP": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.052,
+    "trade_count": 1
+  },
+  "MA": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.0142,
     "trade_count": 1
   }
 }

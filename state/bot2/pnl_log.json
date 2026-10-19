@@ -244,5 +244,47 @@
     "pnl": 0.1139,
     "reason": "stale exit WMT",
     "cumulative": -64.7749
+  },
+  {
+    "ts": "2026-10-19T19:42:36",
+    "pnl": 0.1309,
+    "reason": "stale exit FAST",
+    "cumulative": -64.644
+  },
+  {
+    "ts": "2026-10-19T19:42:36",
+    "pnl": 3.5176,
+    "reason": "stale exit GOOGL",
+    "cumulative": -61.1264
+  },
+  {
+    "ts": "2026-10-19T19:42:36",
+    "pnl": 0.0728,
+    "reason": "stale exit V",
+    "cumulative": -61.0536
+  },
+  {
+    "ts": "2026-10-19T19:42:36",
+    "pnl": -0.0228,
+    "reason": "stale exit WMT",
+    "cumulative": -61.0764
+  },
+  {
+    "ts": "2026-10-19T19:42:36",
+    "pnl": -0.0149,
+    "reason": "stale exit WSM",
+    "cumulative": -61.0913
+  },
+  {
+    "ts": "2026-10-19T19:47:58",
+    "pnl": -0.052,
+    "reason": "stale exit COP",
+    "cumulative": -61.1433
+  },
+  {
+    "ts": "2026-10-19T19:47:58",
+    "pnl": 0.0142,
+    "reason": "stale exit MA",
+    "cumulative": -61.1291
   }
 ]
