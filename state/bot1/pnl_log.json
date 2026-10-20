@@ -130,5 +130,29 @@
     "pnl": -0.1138,
     "reason": "stale exit ULTA",
     "cumulative": -4.3171
+  },
+  {
+    "ts": "2026-10-20T18:08:58",
+    "pnl": 0.1006,
+    "reason": "stale exit WMT",
+    "cumulative": -4.2165
+  },
+  {
+    "ts": "2026-10-20T19:01:31",
+    "pnl": 0.0232,
+    "reason": "stale exit LDOS",
+    "cumulative": -4.1933
+  },
+  {
+    "ts": "2026-10-20T19:15:39",
+    "pnl": -0.0972,
+    "reason": "stale exit MRK",
+    "cumulative": -4.2905
+  },
+  {
+    "ts": "2026-10-20T19:35:54",
+    "pnl": -0.4045,
+    "reason": "stale exit LION",
+    "cumulative": -4.695
   }
 ]
