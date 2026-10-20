@@ -70,14 +70,14 @@
     "trade_count": 2
   },
   "V": {
-    "buy_correct": 3,
-    "buy_total": 6,
+    "buy_correct": 5,
+    "buy_total": 8,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 2.6651,
-    "trade_count": 6
+    "total_pnl": 4.1552,
+    "trade_count": 8
   },
   "LRCX": {
     "buy_correct": 0,
@@ -151,13 +151,13 @@
   },
   "WMT": {
     "buy_correct": 2,
-    "buy_total": 6,
+    "buy_total": 8,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.4881,
-    "trade_count": 6
+    "total_pnl": -0.2283,
+    "trade_count": 8
   },
   "EL": {
     "buy_correct": 2,
@@ -280,23 +280,43 @@
     "trade_count": 1
   },
   "COP": {
+    "buy_correct": 2,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.1392,
+    "trade_count": 3
+  },
+  "MA": {
+    "buy_correct": 3,
+    "buy_total": 3,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.5693,
+    "trade_count": 3
+  },
+  "KLAC": {
     "buy_correct": 0,
     "buy_total": 1,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.052,
+    "total_pnl": -2.282,
     "trade_count": 1
   },
-  "MA": {
-    "buy_correct": 1,
-    "buy_total": 1,
+  "KO": {
+    "buy_correct": 0,
+    "buy_total": 2,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.0142,
-    "trade_count": 1
+    "total_pnl": -0.0148,
+    "trade_count": 2
   }
 }

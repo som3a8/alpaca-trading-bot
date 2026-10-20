@@ -286,5 +286,71 @@
     "pnl": 0.0142,
     "reason": "stale exit MA",
     "cumulative": -61.1291
+  },
+  {
+    "ts": "2026-10-20T16:41:39",
+    "pnl": -2.282,
+    "reason": "circuit breaker KLAC",
+    "cumulative": -63.4111
+  },
+  {
+    "ts": "2026-10-20T17:50:01",
+    "pnl": 0.1126,
+    "reason": "stale exit COP",
+    "cumulative": -63.2985
+  },
+  {
+    "ts": "2026-10-20T17:50:02",
+    "pnl": -0.0066,
+    "reason": "stale exit KO",
+    "cumulative": -63.3051
+  },
+  {
+    "ts": "2026-10-20T17:50:02",
+    "pnl": 0.5104,
+    "reason": "stale exit MA",
+    "cumulative": -62.7947
+  },
+  {
+    "ts": "2026-10-20T17:50:02",
+    "pnl": 1.4192,
+    "reason": "stale exit V",
+    "cumulative": -61.3755
+  },
+  {
+    "ts": "2026-10-20T17:50:03",
+    "pnl": -0.615,
+    "reason": "stale exit WMT",
+    "cumulative": -61.9905
+  },
+  {
+    "ts": "2026-10-20T18:58:41",
+    "pnl": 0.0786,
+    "reason": "stale exit COP",
+    "cumulative": -61.9119
+  },
+  {
+    "ts": "2026-10-20T18:58:41",
+    "pnl": -0.0082,
+    "reason": "stale exit KO",
+    "cumulative": -61.9201
+  },
+  {
+    "ts": "2026-10-20T18:58:41",
+    "pnl": 0.0447,
+    "reason": "stale exit MA",
+    "cumulative": -61.8754
+  },
+  {
+    "ts": "2026-10-20T18:58:42",
+    "pnl": 0.0709,
+    "reason": "stale exit V",
+    "cumulative": -61.8045
+  },
+  {
+    "ts": "2026-10-20T18:58:42",
+    "pnl": -0.1014,
+    "reason": "stale exit WMT",
+    "cumulative": -61.9059
   }
 ]
