@@ -256,5 +256,71 @@
     "pnl": -0.0044,
     "reason": "stale exit CAT",
     "cumulative": -24.538
+  },
+  {
+    "ts": "2026-10-20T16:41:46",
+    "pnl": -5.5704,
+    "reason": "circuit breaker VRT",
+    "cumulative": -30.1084
+  },
+  {
+    "ts": "2026-10-20T17:28:44",
+    "pnl": 6.1877,
+    "reason": "profit target WDC",
+    "cumulative": -23.9207
+  },
+  {
+    "ts": "2026-10-20T17:51:25",
+    "pnl": 0.1196,
+    "reason": "stale exit AMAT",
+    "cumulative": -23.8011
+  },
+  {
+    "ts": "2026-10-20T17:51:25",
+    "pnl": -0.5593,
+    "reason": "stale exit BAC",
+    "cumulative": -24.3604
+  },
+  {
+    "ts": "2026-10-20T17:51:25",
+    "pnl": 0.0441,
+    "reason": "stale exit CAT",
+    "cumulative": -24.3163
+  },
+  {
+    "ts": "2026-10-20T17:51:26",
+    "pnl": -0.1253,
+    "reason": "stale exit STT",
+    "cumulative": -24.4416
+  },
+  {
+    "ts": "2026-10-20T18:14:21",
+    "pnl": -0.109,
+    "reason": "stale exit ATRO",
+    "cumulative": -24.5506
+  },
+  {
+    "ts": "2026-10-20T18:55:08",
+    "pnl": 0.8765,
+    "reason": "stale exit DPC",
+    "cumulative": -23.6741
+  },
+  {
+    "ts": "2026-10-20T19:00:49",
+    "pnl": -1.9124,
+    "reason": "stale exit BAC",
+    "cumulative": -25.5865
+  },
+  {
+    "ts": "2026-10-20T19:00:49",
+    "pnl": 0.6162,
+    "reason": "stale exit CAT",
+    "cumulative": -24.9703
+  },
+  {
+    "ts": "2026-10-20T19:24:30",
+    "pnl": 0.0519,
+    "reason": "stale exit ATRO",
+    "cumulative": -24.9184
   }
 ]
