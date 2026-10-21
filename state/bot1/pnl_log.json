@@ -154,5 +154,35 @@
     "pnl": -0.4045,
     "reason": "stale exit LION",
     "cumulative": -4.695
+  },
+  {
+    "ts": "2026-10-21T18:19:56",
+    "pnl": 0.2314,
+    "reason": "stale exit KMI",
+    "cumulative": -4.4636
+  },
+  {
+    "ts": "2026-10-21T18:19:56",
+    "pnl": -0.1931,
+    "reason": "stale exit SBUX",
+    "cumulative": -4.6567
+  },
+  {
+    "ts": "2026-10-21T18:45:08",
+    "pnl": -0.0773,
+    "reason": "stale exit EXE",
+    "cumulative": -4.734
+  },
+  {
+    "ts": "2026-10-21T19:57:34",
+    "pnl": 0.1668,
+    "reason": "stale exit SBUX",
+    "cumulative": -4.5672
+  },
+  {
+    "ts": "2026-10-21T19:57:34",
+    "pnl": -0.1321,
+    "reason": "stale exit WDC",
+    "cumulative": -4.6993
   }
 ]

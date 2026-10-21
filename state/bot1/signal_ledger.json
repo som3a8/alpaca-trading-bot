@@ -238,5 +238,45 @@
     "hold_total": 0,
     "total_pnl": -0.4045,
     "trade_count": 1
+  },
+  "KMI": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.2314,
+    "trade_count": 1
+  },
+  "SBUX": {
+    "buy_correct": 1,
+    "buy_total": 2,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0263,
+    "trade_count": 2
+  },
+  "EXE": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.0773,
+    "trade_count": 1
+  },
+  "WDC": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.1321,
+    "trade_count": 1
   }
 }
