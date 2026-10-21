@@ -322,5 +322,59 @@
     "pnl": 0.0519,
     "reason": "stale exit ATRO",
     "cumulative": -24.9184
+  },
+  {
+    "ts": "2026-10-21T16:59:58",
+    "pnl": -4.8671,
+    "reason": "circuit breaker SE",
+    "cumulative": -29.7855
+  },
+  {
+    "ts": "2026-10-21T18:07:38",
+    "pnl": 0.7268,
+    "reason": "stale exit BAC",
+    "cumulative": -29.0587
+  },
+  {
+    "ts": "2026-10-21T18:07:38",
+    "pnl": 0.1387,
+    "reason": "stale exit CAT",
+    "cumulative": -28.92
+  },
+  {
+    "ts": "2026-10-21T18:07:38",
+    "pnl": -0.0919,
+    "reason": "stale exit KLAC",
+    "cumulative": -29.0119
+  },
+  {
+    "ts": "2026-10-21T18:07:39",
+    "pnl": -0.2965,
+    "reason": "stale exit MHO",
+    "cumulative": -29.3084
+  },
+  {
+    "ts": "2026-10-21T18:13:13",
+    "pnl": -0.1121,
+    "reason": "stale exit CMG",
+    "cumulative": -29.4205
+  },
+  {
+    "ts": "2026-10-21T18:47:10",
+    "pnl": -0.3145,
+    "reason": "stale exit TAL",
+    "cumulative": -29.735
+  },
+  {
+    "ts": "2026-10-21T18:58:18",
+    "pnl": -3.7853,
+    "reason": "circuit breaker DPC",
+    "cumulative": -33.5203
+  },
+  {
+    "ts": "2026-10-21T19:21:57",
+    "pnl": -0.1774,
+    "reason": "stale exit CMG",
+    "cumulative": -33.6977
   }
 ]
