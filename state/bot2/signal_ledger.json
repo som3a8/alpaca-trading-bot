@@ -70,14 +70,14 @@
     "trade_count": 2
   },
   "V": {
-    "buy_correct": 5,
-    "buy_total": 8,
+    "buy_correct": 6,
+    "buy_total": 9,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 4.1552,
-    "trade_count": 8
+    "total_pnl": 4.7386,
+    "trade_count": 9
   },
   "LRCX": {
     "buy_correct": 0,
@@ -150,14 +150,14 @@
     "trade_count": 3
   },
   "WMT": {
-    "buy_correct": 2,
-    "buy_total": 8,
+    "buy_correct": 3,
+    "buy_total": 10,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.2283,
-    "trade_count": 8
+    "total_pnl": 0.278,
+    "trade_count": 10
   },
   "EL": {
     "buy_correct": 2,
@@ -280,24 +280,24 @@
     "trade_count": 1
   },
   "COP": {
-    "buy_correct": 2,
-    "buy_total": 3,
+    "buy_correct": 4,
+    "buy_total": 5,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.1392,
-    "trade_count": 3
+    "total_pnl": 1.0317,
+    "trade_count": 5
   },
   "MA": {
-    "buy_correct": 3,
-    "buy_total": 3,
+    "buy_correct": 4,
+    "buy_total": 5,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.5693,
-    "trade_count": 3
+    "total_pnl": 0.5363,
+    "trade_count": 5
   },
   "KLAC": {
     "buy_correct": 0,
@@ -310,13 +310,43 @@
     "trade_count": 1
   },
   "KO": {
+    "buy_correct": 1,
+    "buy_total": 4,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.279,
+    "trade_count": 4
+  },
+  "DIS": {
     "buy_correct": 0,
     "buy_total": 2,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.0148,
+    "total_pnl": -0.3958,
     "trade_count": 2
+  },
+  "TJX": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 0.0,
+    "trade_count": 1
+  },
+  "AIG": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -0.8486,
+    "trade_count": 1
   }
 }

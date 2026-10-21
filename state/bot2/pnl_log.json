@@ -352,5 +352,83 @@
     "pnl": -0.1014,
     "reason": "stale exit WMT",
     "cumulative": -61.9059
+  },
+  {
+    "ts": "2026-10-21T18:06:30",
+    "pnl": 0.1465,
+    "reason": "stale exit COP",
+    "cumulative": -61.7594
+  },
+  {
+    "ts": "2026-10-21T18:06:30",
+    "pnl": -0.2114,
+    "reason": "stale exit DIS",
+    "cumulative": -61.9708
+  },
+  {
+    "ts": "2026-10-21T18:06:31",
+    "pnl": -0.3906,
+    "reason": "stale exit KO",
+    "cumulative": -62.3614
+  },
+  {
+    "ts": "2026-10-21T18:06:31",
+    "pnl": 0.3719,
+    "reason": "stale exit MA",
+    "cumulative": -61.9895
+  },
+  {
+    "ts": "2026-10-21T18:06:31",
+    "pnl": 0.0,
+    "reason": "stale exit TJX",
+    "cumulative": -61.9895
+  },
+  {
+    "ts": "2026-10-21T18:06:31",
+    "pnl": 0.5834,
+    "reason": "stale exit V",
+    "cumulative": -61.4061
+  },
+  {
+    "ts": "2026-10-21T18:06:32",
+    "pnl": 0.6695,
+    "reason": "stale exit WMT",
+    "cumulative": -60.7366
+  },
+  {
+    "ts": "2026-10-21T18:45:34",
+    "pnl": -0.8486,
+    "reason": "stale exit AIG",
+    "cumulative": -61.5852
+  },
+  {
+    "ts": "2026-10-21T19:13:23",
+    "pnl": 0.746,
+    "reason": "stale exit COP",
+    "cumulative": -60.8392
+  },
+  {
+    "ts": "2026-10-21T19:13:24",
+    "pnl": -0.1844,
+    "reason": "stale exit DIS",
+    "cumulative": -61.0236
+  },
+  {
+    "ts": "2026-10-21T19:13:24",
+    "pnl": 0.1264,
+    "reason": "stale exit KO",
+    "cumulative": -60.8972
+  },
+  {
+    "ts": "2026-10-21T19:13:24",
+    "pnl": -0.4049,
+    "reason": "stale exit MA",
+    "cumulative": -61.3021
+  },
+  {
+    "ts": "2026-10-21T19:13:24",
+    "pnl": -0.1632,
+    "reason": "stale exit WMT",
+    "cumulative": -61.4653
   }
 ]
