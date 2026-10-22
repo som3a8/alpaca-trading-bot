@@ -80,14 +80,14 @@
     "trade_count": 1
   },
   "ADBE": {
-    "buy_correct": 0,
-    "buy_total": 1,
+    "buy_correct": 1,
+    "buy_total": 2,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.1273,
-    "trade_count": 1
+    "total_pnl": 11.3443,
+    "trade_count": 2
   },
   "GS": {
     "buy_correct": 0,
@@ -277,6 +277,26 @@
     "hold_correct": 0,
     "hold_total": 0,
     "total_pnl": -0.1321,
+    "trade_count": 1
+  },
+  "IQV": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 2.5666,
+    "trade_count": 1
+  },
+  "ABBV": {
+    "buy_correct": 1,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": 1.4595,
     "trade_count": 1
   }
 }

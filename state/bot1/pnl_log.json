@@ -184,5 +184,11 @@
     "pnl": -0.1321,
     "reason": "stale exit WDC",
     "cumulative": -4.6993
+  },
+  {
+    "ts": "2026-10-22T16:59:10",
+    "pnl": 11.4716,
+    "reason": "profit target ADBE",
+    "cumulative": 6.7723
   }
 ]
