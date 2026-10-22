@@ -376,5 +376,35 @@
     "pnl": -0.1774,
     "reason": "stale exit CMG",
     "cumulative": -33.6977
+  },
+  {
+    "ts": "2026-10-22T16:59:10",
+    "pnl": -14.9446,
+    "reason": "circuit breaker APH",
+    "cumulative": -48.6423
+  },
+  {
+    "ts": "2026-10-22T16:59:10",
+    "pnl": -7.5313,
+    "reason": "circuit breaker FLEX",
+    "cumulative": -56.1736
+  },
+  {
+    "ts": "2026-10-22T16:59:10",
+    "pnl": -5.5028,
+    "reason": "circuit breaker HWM",
+    "cumulative": -61.6764
+  },
+  {
+    "ts": "2026-10-22T19:03:13",
+    "pnl": -5.4758,
+    "reason": "circuit breaker DY",
+    "cumulative": -67.1522
+  },
+  {
+    "ts": "2026-10-22T19:09:04",
+    "pnl": 15.2559,
+    "reason": "profit target MHO",
+    "cumulative": -51.8963
   }
 ]

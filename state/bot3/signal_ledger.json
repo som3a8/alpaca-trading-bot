@@ -330,14 +330,14 @@
     "trade_count": 1
   },
   "MHO": {
-    "buy_correct": 0,
-    "buy_total": 1,
+    "buy_correct": 1,
+    "buy_total": 2,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": -0.2965,
-    "trade_count": 1
+    "total_pnl": 14.9594,
+    "trade_count": 2
   },
   "CMG": {
     "buy_correct": 0,
@@ -357,6 +357,46 @@
     "hold_correct": 0,
     "hold_total": 0,
     "total_pnl": -0.3145,
+    "trade_count": 1
+  },
+  "APH": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -14.9446,
+    "trade_count": 1
+  },
+  "FLEX": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -7.5313,
+    "trade_count": 1
+  },
+  "HWM": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -5.5028,
+    "trade_count": 1
+  },
+  "DY": {
+    "buy_correct": 0,
+    "buy_total": 1,
+    "sell_correct": 0,
+    "sell_total": 0,
+    "hold_correct": 0,
+    "hold_total": 0,
+    "total_pnl": -5.4758,
     "trade_count": 1
   }
 }
