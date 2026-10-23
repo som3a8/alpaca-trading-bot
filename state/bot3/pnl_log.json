@@ -406,5 +406,11 @@
     "pnl": 15.2559,
     "reason": "profit target MHO",
     "cumulative": -51.8963
+  },
+  {
+    "ts": "2026-10-23T18:05:17",
+    "pnl": -0.0217,
+    "reason": "stale exit ALB",
+    "cumulative": -51.918
   }
 ]
