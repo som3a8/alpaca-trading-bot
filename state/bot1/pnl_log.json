@@ -190,5 +190,11 @@
     "pnl": 11.4716,
     "reason": "profit target ADBE",
     "cumulative": 6.7723
+  },
+  {
+    "ts": "2026-10-23T18:13:44",
+    "pnl": 0.3471,
+    "reason": "stale exit KMI",
+    "cumulative": 7.1194
   }
 ]
