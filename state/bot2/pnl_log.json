@@ -442,5 +442,17 @@
     "pnl": -0.3962,
     "reason": "stale exit COP",
     "cumulative": -71.6015
+  },
+  {
+    "ts": "2026-10-23T18:04:18",
+    "pnl": 0.1671,
+    "reason": "stale exit KO",
+    "cumulative": -71.4344
+  },
+  {
+    "ts": "2026-10-23T18:04:18",
+    "pnl": 0.0735,
+    "reason": "stale exit MA",
+    "cumulative": -71.3609
   }
 ]
