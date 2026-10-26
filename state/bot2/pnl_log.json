@@ -454,5 +454,11 @@
     "pnl": 0.0735,
     "reason": "stale exit MA",
     "cumulative": -71.3609
+  },
+  {
+    "ts": "2026-10-26T19:45:39",
+    "pnl": -0.1789,
+    "reason": "stale exit DIS",
+    "cumulative": -71.5398
   }
 ]
