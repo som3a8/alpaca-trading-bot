@@ -150,14 +150,14 @@
     "trade_count": 4
   },
   "WMT": {
-    "buy_correct": 3,
-    "buy_total": 10,
+    "buy_correct": 4,
+    "buy_total": 11,
     "sell_correct": 0,
     "sell_total": 0,
     "hold_correct": 0,
     "hold_total": 0,
-    "total_pnl": 0.278,
-    "trade_count": 10
+    "total_pnl": 0.9699,
+    "trade_count": 11
   },
   "EL": {
     "buy_correct": 2,

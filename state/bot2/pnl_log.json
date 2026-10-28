@@ -460,5 +460,11 @@
     "pnl": -0.1789,
     "reason": "stale exit DIS",
     "cumulative": -71.5398
+  },
+  {
+    "ts": "2026-10-28T19:32:27",
+    "pnl": 0.6919,
+    "reason": "stale exit WMT",
+    "cumulative": -70.8479
   }
 ]
