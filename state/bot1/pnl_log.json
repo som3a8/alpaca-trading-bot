@@ -196,5 +196,11 @@
     "pnl": 0.3471,
     "reason": "stale exit KMI",
     "cumulative": 7.1194
+  },
+  {
+    "ts": "2026-10-29T19:48:37",
+    "pnl": 5.0669,
+    "reason": "profit target SBUX",
+    "cumulative": 12.1863
   }
 ]
